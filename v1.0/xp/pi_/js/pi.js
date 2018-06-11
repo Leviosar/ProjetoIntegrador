@@ -6,9 +6,9 @@ var play = document.querySelector('div.play')
 var undo = document.querySelector('div.undo')
 var progress = document.querySelector('div.progressbar-inside')
 var perc = 0;
-var xp = new Experience(6, "f4c242")
+
 button.addEventListener('click', ev=> {
-    window.location = '../../xplist.html'
+    window.location = '../../disciplinas.html'
 })
 
 function setup() {

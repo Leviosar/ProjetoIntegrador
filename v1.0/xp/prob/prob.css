@@ -180,4 +180,20 @@ div.content-container {
   overflow: hidden;
 }
 
+div.sha {
+  height: 35vh;
+  border: 6px dashed #185e82;
+  width: 100%;
+  display: flex;
+  padding: 2vw;
+  color: white;
+  font-family: Kollektif;
+  font-size: 8vw;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
 
+div.sha p {
+  display: flex;
+  flex-wrap: wrap;
+}
