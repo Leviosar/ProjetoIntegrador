@@ -2,61 +2,41 @@ var $ = function (select) {
     return document.querySelector(select)
 }
 
-function menuCheck() {
-    if (!menuStatus) {
-        blurOn(todo)
-        menuStatus = true
-        side.classList += ' side-menu-open'
-        shadow()
-    } else {
-        blurOff(todo)
-        menuStatus = false
-        side.className = 'side-menu'
-        shadow()
+let userData
+
+async function insertNewUser(nome, login, password){
+    let response = await fetch("php/insert.php?login="+login+"&nome="+nome+"&pass="+password);
+    let data = await response.text();
+    (data) => {
+        if(data == "Usuário criado")
+            tryLogin(login, password)
     }
 }
 
-function shadow() {
-    if (menuStatus) {
-        shadowMenu.style.left = '70vw'
-    } else {
-        shadowMenu.style.left = '-30vw'
+async function tryLogin(login, password){
+    let response = await fetch("php/login.php?login="+login+"&pass="+password);
+    let data = await response.text();
+    (data) => {
+        if(data != null){
+            localStorage.setItem("userData", data)
+            getUserData()
+            window.location = "xplist.html"
+        }
     }
 }
 
-function blurOn(element) {
-    element.style.filter = 'brightness(100%)'
-    setTimeout(function () {
-        shadowMenu.style.background = 'rgba(0,0,0,40%)'
-    }, 500)
-}
-
-function blurOff(element) {
-    if (!element.style.filter.includes('brightness')) {
-        return false
+function getUserData(){
+    if(typeof localStorage.getItem("userData") != "undefined"){
+        user = new Usuario(JSON.parse(localStorage.getItem("userData")))
     }else{
-        shadowMenu.style.background = 'rgba(0,0,0,0%)'  
-        element.style.filter = '';
+        window.location = "index.html"
     }
 }
 
-var userData;
-function cacete() {
-    xhr = new XMLHttpRequest();
-    xhr.open('GET', 'storage/user.json')
-    xhr.addEventListener('load', ev => {
-        userData = JSON.parse(xhr.responseText)
-    })
-    xhr.send();
+class Usuario{
+    constructor(userData){
+        this.timetableId = localStorage.getItem("timetableId")
+        this.nome = localStorage.getItem("nomeUsuario")
+        this.email = localStorage.getItem("emailUsuario")
+    }
 }
-
-function randomColor() {
-    let r = Math.floor(Math.random() * 256)
-    let g = Math.floor(Math.random() * 256)
-    let b = Math.floor(Math.random() * 256)
-    let a = Math.floor(Math.random() * 256)
-
-    return "rgba(" + r + ',' + g + ',' + b + ',' + a + ')'
-}
-
-

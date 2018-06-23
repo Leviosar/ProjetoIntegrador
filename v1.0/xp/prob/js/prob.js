@@ -1,9 +1,21 @@
-const xp = new Experience(8, "#185e82")
+const xp = new Experience(8, "#b10bcf")
+var wavesurfer
 
-const pswdInput = document.querySelector("input.pass")
-const shaInput = document.querySelector("div.sha")
+const div3 = document.querySelector("div.carousel2")
+div3.addEventListener("click", ev=>{
+    
+    wavesurfer = WaveSurfer.create({
+        container: '#waveform',
+        waveColor: 'violet',
+        progressColor: 'purple',
+        barHeight: "5",
+        height: "500",
+        barWidht: "6"
+    })
 
-pswdInput.addEventListener("input", ev=>{
-    let hash = CryptoJS.SHA256(pswdInput.value)
-    shaInput.firstElementChild.innerText = hash
+    wavesurfer.load('wave2.mp3')
+
+    wavesurfer.on('ready', function () {
+        wavesurfer.play();
+    })
 })

@@ -21,16 +21,18 @@
 	<!-- p5.js CDN Externo -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
     <script type="text/javascript" src="js/cripto/components/core-min.js"></script>
-    <script type="text/javascript" src="js/cripto/components/sha256-min.js"></script>
+	<script type="text/javascript" src="js/cripto/components/md5-min.js"></script>
+	<script src="js/wavesurfer.js"></script>
+
 </head>
 <body>
 	<div class="container columns align-center explanation" id="container">
 	
-			<h2 class="mb-4 mt-4">Criptografia</h2>
+			<h2 class="mb-4 mt-4">Toc toc</h2>
 
 			<!-- Troque a cor do span abaixo conforme a experiência -->
 			
-			<p class="mb-4"><span>Programação</span></p>
+			<p class="mb-4"><span>Física</span></p>
 			
 			<ul class="dotBar">
 				<!-- Quantidade de circulos iguais a de textos da experiência -->
@@ -38,33 +40,29 @@
 
 			<div class="content-container">
 				<div class="content">
-					<p>Alguma vez na vida você provavelmente quis "hackear" a conta de alguém (sem julgamentos, errar é humano). A maneira mais lógica em uma primeira observação é um ataque de força bruta, ou seja, testar todas as possibilidades de senha.</p>
+					<p>A física e seus estudos nos mostram como o mundo funciona. Essa frase soou bem para você? Mas o que é realmente soar? Como funciona a música? Nessa experiência recomenda-se o uso de fones de ouvido.</p>
                 </div>
                 
 				<div class="content">
-					<p>Para uma senha numérica de 4 dígitos isso pode até ser simples, levando em conta que temos 10 algarismos possíveis, a probabilidade final de acertar a senha é de 1/10000, seu computador faz isso em segundos</p>
+					<p>Todo barulho que você já ouviu na vida é uma onda, viajando de um transmissor até você. Eu espero que enquanto você esteja lendo isso, já exista uma experiência sobre ondas aqui, caso exista, cliquei aqui para ver ela.</p>
                 </div>
                 
 				<div class="content">
-					<p>Então quer dizer que não estamos seguros na web? Longe disso, é aqui que entra a criptografia. Sua senha pode não ser muito complicada de descobrir, mas não é com ela que nós iremos lidar, e sim com um <i>hash</i></p>
+					<div id="waveform"></div>
                 </div>
                 
 				<div class="content">
-					<p>Um <i>hash</i> é o resultado de uma função <i>hash</i>, algo que transforma a sua senha em um código praticamente impossível de ser revertido ao seu estado original, uma dessas funções se chama SHA256, criada pela NSA (National Security Agency).</p>
+					<p>Um <i>hash</i> é o resultado de uma função <i>hash</i>, algo que transforma a sua senha em um código praticamente impossível de ser revertido ao seu estado original, uma dessas funções se chama MD5.</p>
                 </div>
                 
 				<div class="content">
-					<p>O SHA256 consegue transformar a sua data de aniversário em um código virtualmente indecifrável, se você duvida de mim, pode testar ai</p>
+					<p>O MD5 (Message-Digest Algorithm 5) consegue transformar a sua data de aniversário em um código muito mais difícil de ser decifrado, se você duvida de mim, pode testar ai</p>
 
                 </div>
                 
 				<div class="content">
                     <input type="text" class="text pass">
-                    <div class="text sha mt-3">
-                        <p>
-                            ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb
-                        </p>
-                     </div>
+                    <div class="sha mt-3"></div>
                 </div>
                 
 				<div class="content">

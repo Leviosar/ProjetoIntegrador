@@ -1,18 +1,43 @@
 <?php
 	
-	$matricula = $_POST['matricula'];
-	$senha = $_POST['senha'];
+	$log = $_GET['log'];
+	$pass = $_GET['pass'];
 
-	$string = "SELECT matricula, FROM aluno WHERE `matricula` = '$matricula' AND `senha` = '$senha'";
+	autenticatePass($log, $pass)
 
-	$connect = mysqli_connect("mysql.hostinger.com.br", "u535468846_oobs", "joao21022001", 'u535468846_oobs');
-	$query = mysqli_query($connect, $string);
+	function autenticatePass($login, $senha){
+		$pass, $email, $nome; 
+		$returnArray = [];
+		$user = [];
+		$string = "SELECT Nome_Aluno, Senha, Email FROM Alunos WHERE `Email` = ? AND `Senha` = ?";
+		$connect = mysqli_connect("localhost", "oob", "joao21022001", 'root');
+		$stmt = mysqli_prepare($connect, $string);
 	
-	if (!$query) {
-		echo 'Erro';
-	}else{
-		$row = mysqli_fetch_array($query, MYSQLI_ASSOC);
-		return json_encode($row); 
+		mysqli_stmt_bind_params($stmt, "ss", $login, $senha);
+		mysqli_stmt_bind_results($stmt, $nome, $pass, $email);
+
+		if(!mysqli_stmt_execute($stmt)){
+			
+			die("Ocorreu um erro durante a execução");
+		
+		}else{
+			
+			mysqli_stmt_fetch($sth);
+
+			array_push($returnArray, "true");
+			array_push($user, $nome);
+			array_push($user, $nome);
+			array_push($user, $nome);
+		}
+	}
+
+	function loginData($login, $senha){
+		$string = "SELECT Nome_Aluno, Email, Senha FROM aluno WHERE `email` = ?";
+		$connect = mysqli_connect("localhost", "oob", "joao21022001", 'root');
+		$stmt = mysqli_prepare($connect, $string);
+	
+		mysqli_stmt_bind_params($stmt, "s", $login);
+		mysqli_stmt_bind_results($stmt, $resultPass);
 	}
 
 ?>
