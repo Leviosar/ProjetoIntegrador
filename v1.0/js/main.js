@@ -4,6 +4,10 @@ var $ = function (select) {
 
 let userData
 
+window.onload = ()=>{
+    getUserData()
+}
+
 async function insertNewUser(nome, login, password){
     let response = await fetch("php/insert.php?login="+login+"&nome="+nome+"&pass="+password);
     let data = await response.text();
@@ -20,7 +24,7 @@ async function tryLogin(login, password){
         if(data != null){
             localStorage.setItem("userData", data)
             getUserData()
-            window.location = "xplist.html"
+            window.location = "getstarted.html"
         }
     }
 }

@@ -1,8 +1,8 @@
-const xp = new Experience(8, "#b10bcf")
+const xp = new Experience(10, "#daa5e2")
 var wavesurfer
 
 const div3 = document.querySelector("div.carousel2")
-div3.addEventListener("click", ev=>{
+div3.addEventListener("input", ev=>{
     
     wavesurfer = WaveSurfer.create({
         container: '#waveform',

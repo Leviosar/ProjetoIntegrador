@@ -1,11 +1,11 @@
-var trigger = document.querySelector('div.menu-trigger')
-var triggerClose = document.querySelector('div.menu-trigger-close')
-var side = document.querySelector('div.side-menu')
-var container = document.querySelector('div.limits')
-var todo = document.querySelector('div.todo')
-var header = document.querySelector('header')
-var shadowMenu = document.querySelector('div.shadow-menu')
-var menuStatus = false;
+let trigger = document.querySelector('div.menu-trigger')
+let triggerClose = document.querySelector('div.menu-trigger-close')
+let side = document.querySelector('div.side-menu')
+let container = document.querySelector('div.limits')
+let todo = document.querySelector('div.todo')
+let header = document.querySelector('header')
+let shadowMenu = document.querySelector('div.shadow-menu')
+let menuStatus = false;
 
 trigger.addEventListener('click', ev=>{
     triggerClose.className = 'menu-trigger-close rotate-90'
@@ -48,8 +48,4 @@ function shadowColor(){
     }else{
         shadowMenu.style.background = 'rgba(30, 30, 30, 0)'
     }
-}
-
-var $ = function (select) {
-    return document.querySelector(select)
 }

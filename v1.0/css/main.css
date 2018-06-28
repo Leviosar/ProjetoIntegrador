@@ -181,12 +181,12 @@ div.container {
 }
 
 .text-red {
-	color:  #db4b4b;
+	color:  #ee5f5f;
 	font-family: Kollektif
 }
 
 .text-purple {
-	color:  #b10bcf;
+	color:  #daa5e2;
 	font-family: Kollektif
 }
 
@@ -426,11 +426,12 @@ div.shadow-menu {
 	align-items: center;
 	font-family: Roboto;
 }
-
 .bg-orange {
 	background: #f4c242;
 }
-
+.bg-purple {
+	background: #daa5e2;
+}
 .bg-blue {
 	background: #185e82;
 }
