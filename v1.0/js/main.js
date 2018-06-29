@@ -2,30 +2,33 @@ var $ = function (select) {
     return document.querySelector(select)
 }
 
+class Usuario{
+    constructor(userData){
+        this.nome = userData[0][0]
+        this.email = userData[0][1]
+    }
+}
+
 let userData
 
-window.onload = ()=>{
-    getUserData()
-}
+window.onload = getUserData()
+
 
 async function insertNewUser(nome, login, password){
     let response = await fetch("php/insert.php?login="+login+"&nome="+nome+"&pass="+password);
     let data = await response.text();
-    (data) => {
-        if(data == "Usuário criado")
-            tryLogin(login, password)
-    }
+    if(data == "true")
+        tryLogin(login, password)
+    
 }
-
+let data
 async function tryLogin(login, password){
     let response = await fetch("php/login.php?login="+login+"&pass="+password);
-    let data = await response.text();
-    (data) => {
-        if(data != null){
-            localStorage.setItem("userData", data)
-            getUserData()
-            window.location = "getstarted.html"
-        }
+    data = await response.text();
+    if(data != null){
+        localStorage.setItem("userData", data)
+        getUserData()
+        window.location = "getstarted.html"
     }
 }
 
@@ -37,10 +40,3 @@ function getUserData(){
     }
 }
 
-class Usuario{
-    constructor(userData){
-        this.timetableId = localStorage.getItem("timetableId")
-        this.nome = localStorage.getItem("nomeUsuario")
-        this.email = localStorage.getItem("emailUsuario")
-    }
-}

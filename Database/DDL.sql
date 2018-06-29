@@ -20,7 +20,7 @@ CREATE TABLE `oob`.`Disciplinas_Experiencias` (
     ) ENGINE = InnoDB;
 
 CREATE TABLE `oob`.`Dia_Letivo` ( 
-    `ID_Dia_Letivo` INT NOT NULL , 
+    `ID_Dia_Letivo` INT NOT NULL AUTO_INCREMENT, 
     `Nome_Dia` VARCHAR(20) NOT NULL ,
     PRIMARY KEY (`ID_Dia_Letivo`)
     ) ENGINE = InnoDB;
@@ -38,7 +38,7 @@ CREATE TABLE `oob`.`Aulas` (
 
 CREATE TABLE `oob`.`Timetable` ( 
     `ID_Dia_Letivo` INT NOT NULL , 
-    `ID_Timetable` INT NOT NULL , 
+    `ID_Timetable` INT NOT NULL AUTO_INCREMENT, 
     PRIMARY KEY (`ID_Timetable`) ,
     FOREIGN KEY (`ID_Dia_Letivo`) REFERENCES `Dia_Letivo` (`ID_Dia_Letivo`)
     ) ENGINE = InnoDB;
