@@ -5,6 +5,7 @@ let container = document.querySelector('div.limits')
 let todo = document.querySelector('div.todo')
 let header = document.querySelector('header')
 let shadowMenu = document.querySelector('div.shadow-menu')
+let backButton = document.querySelector('div.logout')
 let menuStatus = false;
 
 trigger.addEventListener('click', ev=>{
@@ -20,6 +21,10 @@ triggerClose.addEventListener('click', ev=>{
 shadowMenu.addEventListener('click', ev=>{
     triggerClose.className = 'menu-trigger-close rotate-180'
     menuCheck();
+})
+
+backButton.addEventListener('click', ()=>{
+    logOut()
 })
 
 function menuCheck(){
@@ -49,3 +54,4 @@ function shadowColor(){
         shadowMenu.style.background = 'rgba(30, 30, 30, 0)'
     }
 }
+

@@ -7,12 +7,13 @@ class Experience{
         this.touchStart
         this.maxText = max
         this.currentText = 0
+        this.endButton = document.querySelector("button.button")
         this.setup()
     }
 
     setup(){
         this.xpContent.style.color = this.color
-
+        this.endButton.style.display = "none"
         let dotBar = document.querySelector ("ul.dotBar")
         for (let i = 0; i < this.maxText; i++) {
             let aux = document.createElement("I")
@@ -51,6 +52,11 @@ class Experience{
     }
 
     setCurrentContent(number) {
+        if(parseInt(number) + 1 == this.maxText)
+            this.endButton.style.display = "inline-block"
+        else
+            this.endButton.style.display = "none"
+
         eraseShit(this.contents)
         this.currentText = number
         this.contents[number].style.display = 'flex'
@@ -92,15 +98,7 @@ window.addEventListener("touchstart", ev=>{
 
 window.addEventListener("touchend", ev=>{
     touchEnd = [ev.changedTouches[0].screenX, ev.changedTouches[0].screenY]
-    if (Math.abs(calcDist(touchStart, touchEnd)) > 120) {
-        xp.swipeContent(calcDist(touchStart, touchEnd))   
+    if (Math.abs(touchStart[0] - touchEnd[0]) > 120) {
+        xp.swipeContent(-(touchStart[0] - touchEnd[0]))   
     } 
 })
-
-function calcDist(start, end){
-    if (start[0] < end[0]) {
-        return Math.sqrt((Math.pow((start[0] - end[0]), 2) + Math.pow((start[1] - end[1]), 2)))   
-    }else{
-        return - Math.sqrt((Math.pow((start[0] - end[0]), 2) + Math.pow((start[1] - end[1]), 2)))   
-    }
-}

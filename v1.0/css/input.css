@@ -14,7 +14,7 @@ input {
  
 input.text {
 	background-color: transparent;
-	height: 8vh;
+	height: 12vw;
 	font-size: 1.5em;
 	border:none;
 	border-bottom: 6px dashed white; 
@@ -22,8 +22,6 @@ input.text {
 	font-family: Kollektif;
 	width: 100%;
 }
-
-
 
 input.text:focus {
 	outline: none;
@@ -46,7 +44,7 @@ input.text::placeholder {
 
 input.button, button.button {
 	background-color: #fff;
-	height: 8vh;
+	height: 15vw;
 	border: none;
 	color: #3390c9;
 	font-family: Kollektif;
@@ -127,7 +125,7 @@ input.text-blue::placeholder {
 
 input.button-blue, button.-blue {
 	background-color: #3390c9;
-	height: 8vh;
+	height: 12vw;
 	border: none;
 	color: #fff;
 	font-family: Kollektif;

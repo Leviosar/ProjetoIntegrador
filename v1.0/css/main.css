@@ -8,6 +8,11 @@ html, body {
     src: url(fonts/Kollektif.ttf);
 }
 
+@font-face {
+    font-family: Roboto;
+    src: url(fonts/Roboto-Regular.ttf);
+}
+
 body {
 	background-color: #3390c9;
 	background: radial-gradient(#3a9ad4 , #3390c9);
@@ -21,7 +26,6 @@ form {
 	width: 80vw;
     justify-content: center;
     align-items: center;
-    /* margin-top: -10vh; */
 }
 
 hr {
@@ -197,7 +201,7 @@ div.container {
 
 .text-blue {
 	color:  #185e82;
-	font-family: Kollektif
+	font-family: Kollektif;
 }
 
 .half-h{
@@ -426,6 +430,10 @@ div.shadow-menu {
 	align-items: center;
 	font-family: Roboto;
 }
+
+.bg-green{
+	background: #d2e459;
+}
 .bg-orange {
 	background: #f4c242;
 }
@@ -476,4 +484,30 @@ a {
 a:focus{
 	text-decoration: none;
 	outline: none;
+}
+
+.swal-overlay{
+	background-color: rgba(51,144,201, 0.1);
+}
+
+.swal-modal{
+	width: 90vw;
+	min-height: 40vh;
+}
+
+.swal-title{
+	font-family: Kollektif;
+}
+
+.swal-text{
+	font-family: Roboto;
+	font-size: 5vw;
+}
+
+.swal-button {
+	background: #3390c9;
+	height: 13vw;
+	width: 30vw;
+	font-family: Kollektif;
+	font-size: 5vw;
 }
