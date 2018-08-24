@@ -160,4 +160,4 @@ let skecth4 = (p)=>{
 }
 
 let canvas4 = new p5(skecth4, "canvas-4")
-document.querySelector("#canvas-4").style.border = "2px dashed white"
+document.querySelector("#defaultCanvas3").style.border = "2px dashed white"

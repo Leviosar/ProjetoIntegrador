@@ -1,0 +1,90 @@
+<html>
+<head>
+	<title>Números não tão complexos</title>
+	<meta charset="utf-8">
+	
+	<!-- Tag meta/viewport para otimização em mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<!-- Estilos próprios deste projeto -->
+	<link rel="stylesheet" type="text/css" href="../../css/input.css">
+	<link rel="stylesheet" type="text/css" href="../../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../../css/img.css">
+
+	<!-- Estilo customizado para esta experiência -->
+	<link rel="stylesheet" type="text/css" href="complexos.css">
+	
+	<!-- Fontes -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+	<!-- p5.js CDN Externo -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+
+</head>
+<body>
+	<div class="container columns align-center explanation" id="container">
+	
+			<h2 class="mb-4 mt-4">Números não tão complexos</h2>
+
+			<!-- Troque a cor do span abaixo conforme a experiência -->
+			
+			<p class="mb-4"><span>Matemática</span></p>
+			
+			<ul class="dotBar">
+				<!-- Quantidade de circulos iguais a de textos da experiência -->
+			</ul>
+
+			<div class="content-container">
+				<div id="canvas-1" class="content window">
+					<p>Durante sua educação escolar, provavelmente do fundamental até o segundo ano do ensino médio, números eram coisas unidimensionais e "simples" e cabiam em uma reta</p>
+				</div>
+				<div class="content window">
+					<p>Em algum momento você também foi ensinado de que raizes quadradas de números negativos não existem, afinal, que número que multiplicado por si mesmo daria um resultado menor do que zero? Que disparate</p>
+				</div>
+				<div class="content window">
+					<p>Mas em algum momento do século XVII, um matemático chamado Girardi usou pela primeira vez a √-1 para resolver uma equação de quarto grau e mudou a maneira de como a matemática era estudada.</p>
+				</div>
+				<div class="content window">
+					<p>Depois de muito suor e trabalho duro, duas maneiras de se representar números complexos foram criadas, uma geométrica e outra algébrica. Vamos começar falando da geométrica já que ela é mais legal.</p>
+				</div>
+				<div class="content window">
+					<p>Antes de tudo, entenda que um número complexo sempre vai ter duas partes, <span class="text-green">real</span> e uma <span class="text-orange">imaginária</span> , e elas devem continuar assim: separadas. No caso da representação geométrica nós usamos um plano cartesiano e coordenadas para representar as duas partes.</p>
+				</div>
+				<div id="canvas-2" class="content window">
+					<div class="display" id="complex-number-1"><p></p></div>
+				</div>
+				<div class="content window">
+					<p>A forma algébrica é utilizada para fazer cálculos com os números complexos e sua fórmula geral é <span class="text-green">a</span>+<span class="text-orange">bi</span>. Para começar com algo simples, a adição entre dois números complexos é apenas adicionar as duas partes reais dos 2 números e fazer o mesmo com a parte imaginária.</p>
+				</div>
+				<div class="content window">
+					<p>No gráfico seguinte você pode selecionar dois pontos e ver uma projeção de como seria o ponto aproximado da soma entre os dois. De forma geral, é algo do tipo:</p>
+					<span class="formula-complex">
+						(<span class="text-green">a</span>+<span class="text-orange"> bi </span>) + (<span class="text-green">c</span> + <span class="text-orange"> di </span>)=<span class="text-green">(a + b)</span> + <span class="text-orange">(c + d)i</span>
+					</span>
+				</div>
+				<div id="canvas-3" class="content window">
+					<div class="display" id="complex-number-2"><p></p></div>
+				</div>
+				<div class="content window">
+						<p>So long</p>
+				</div>
+			</div>
+
+			<button class="button">Fim da experiência</button>
+	</div>
+	
+	<!-- Frameworks -->
+
+	<!-- Font-Awesome - CDN externo -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../../js/classes/Scroller.js"></script>
+	<script type="text/javascript" src="../../js/classes/Experience.js"></script>
+	<script type="text/javascript" src="js/complexos.js"></script>
+	<script defer type="text/javascript" src="js/canvas1.js"></script>
+	<script defer type="text/javascript" src="js/canvas2.js"></script>
+	<script defer type="text/javascript" src="js/canvas3.js"></script>
+
+</body>
+</html>

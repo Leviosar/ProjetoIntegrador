@@ -113,6 +113,7 @@ div.hud {
   height: 12vh;
   justify-content: center;
   align-items: center;
+  margin-top: 10vh
 }
 div.hud > div {
   flex-grow: 1;
@@ -164,20 +165,34 @@ ul li {
 }
 
 div.content{
-  display: none;
-  width: 80vw;
+  display: flex;
+  flex: none;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: .5s ease;
+}
+
+div.content p {
+  width: 80%;
+}
+
+ul.dotBar li{
+  background: transparent !important;
 }
 
 div.content-container {
+  will-change: transform;
   height: 55vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  overflow: hidden;
+  transition: .2s ease-in-out;
+}
+
+body{
+  overflow-x: hidden;
+  margin: 0;
 }
 
 

@@ -1,1 +1,0 @@
-const xp = new Experience(6, '#000000')

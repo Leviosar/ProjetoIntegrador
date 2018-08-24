@@ -364,12 +364,11 @@ div.menu-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-	margin-top: -20vh;
 	margin-bottom: 15vh;
 }
 
 img.menu-logo {
-    width: 50%;
+    width: 100%;
 }
 
 div.limits {
@@ -442,6 +441,18 @@ div.shadow-menu {
 }
 .bg-blue {
 	background: #185e82;
+}
+.text-green{
+	color: #d2e459;
+}
+.text-orange{
+	color: #f4c242;
+}
+.text-purple{
+	color: #daa5e2;
+}
+.text-blue{
+	color: #185e82;
 }
 
 .xp-header{
