@@ -160,7 +160,7 @@ ul {
 ul li {
   color: white;
   font-size: 8vw;
-  transition: ease .2s;
+  /* transition: ease .2s; */
 }
 
 div.content{
@@ -182,11 +182,10 @@ ul.dotBar li{
 }
 
 div.content-container {
-  will-change: transform;
   height: 55vh;
   width: 100vw;
   display: flex;
-  transition: .2s ease-in-out;
+  /* transition: .2s ease-in-out; */
 }
 
 body{

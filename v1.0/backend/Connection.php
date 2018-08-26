@@ -11,7 +11,7 @@ class Connection{
 	//const TEMPO = 1
 
 	function __construct(){
-		$this->conexao = new PDO('mysql:host=localhost;dbname=oob;charset=utf8','root','my28@if#741');
+		$this->conexao = new PDO('mysql:host=localhost;dbname=oob_bd;charset=utf8','root','my28@if#741');
 	}
 	function auth($token, $admin){
 		if($admin == 1) $query = ' AND usuario.idusuario = seguranca.idusuario AND usuario.idtipo = 1';

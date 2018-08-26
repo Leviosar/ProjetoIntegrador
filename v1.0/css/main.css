@@ -356,6 +356,9 @@ div#text-header {
 	align-items: center;
 }
 
+div.content-container div.window {
+  }
+
 div.menu-item > a {
 	margin-left: 5vmin;
 }

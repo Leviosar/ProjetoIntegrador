@@ -5,7 +5,7 @@ class User{
     protected $connection;
     
     public function __construct(){
-        $this->connection = new PDO('mysql:host=localhost;dbname=oob_bd;charset=utf8','root','');
+        $this->connection = new PDO('mysql:host=localhost;dbname=oob_bd;charset=utf8','root','my28@if#658');
     }
 
     function login($KEYS){

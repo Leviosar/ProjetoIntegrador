@@ -171,7 +171,7 @@ class Usuario{
 
     async request(opt, payload, callback = ()=>{return true}, errorCallback = ()=>{return false}){
         let resposta = false;
-        let url = "http://localhost/backend/router.php?"
+        let url = "http://www.labmatii.ifc-camboriu.edu.br/oob/backend/router.php?"
         let token = "&token=" + window.sessionStorage.getItem('token')
         let option = "option=" + opt;
         let req = await fetch(url + option + token, 

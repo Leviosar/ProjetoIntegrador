@@ -19,7 +19,6 @@ function sumComplex(a, b){
 let skecth3 = (p)=>{
     width3 = container2.offsetWidth * 0.8, height3 = container2.offsetWidth * 0.8
     p.setup = ()=>{
-        p.strokeCap(p.RECT)
         p.createCanvas(width3, height3)
         p.stroke(255)
         p.strokeWeight(4)
@@ -93,7 +92,6 @@ let skecth3 = (p)=>{
             pointC = sumComplex(pointA, pointB)
             pointC.realX = pointC.px
             pointC.realY = pointC.py
-            console.log(pointC)
 
             p.strokeWeight(4)
             p.stroke("#f4c242") 

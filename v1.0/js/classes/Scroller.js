@@ -11,7 +11,7 @@ class Scroller {
     }
 
     setup() {
-        this.steps[0].style.transform = 'scale(1.3)'
+        // this.steps[0].style.transform = 'scale(1.3)'
     }
 
     slideTimes(step) {
@@ -19,14 +19,14 @@ class Scroller {
     }
 
     slide(step) {
-        this.steps.forEach(element => {
+        // this.steps.forEach(element => {
 
-            if (element.dataset.pos == step || step == this.max + 2 && element.dataset.pos == 1)
-                element.style.transform = 'scale(1.3)'
+        //     if (element.dataset.pos == step || step == this.max + 2 && element.dataset.pos == 1)
+        //         element.style.transform = 'scale(1.3)'
 
-            else 
-                element.style.transform = 'scale(1)'
-        })
+        //     else 
+        //         element.style.transform = 'scale(1)'
+        // })
         this.current = step - 1
 
         if (this.current < 0 || this.current > this.max)
@@ -36,7 +36,7 @@ class Scroller {
             this.current = this.windows.length - 1
 
     
-        return this.container.style.transform = `translate3d(${this.current * -100}%,0,0)`
+        return this.container.style.transform = `translate3d(${this.current * -100}%, 0, 0)`
     }
 
     next() {
