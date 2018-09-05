@@ -16,8 +16,7 @@ let skecth3 = (p)=>{
         startButton.addEventListener("click", ()=>{
             startGame()
         })
-        p.frameRate(10)
-        p.noLoop()
+        p.frameRate(0)
     }
 
     p.draw = ()=>{
@@ -36,15 +35,8 @@ let skecth3 = (p)=>{
     }
 
     function gameOver(condition){
-        p.noLoop()
+        p.frameRate(0)
         startButton.style.display = "inline-block"
-        if(condition){
-            startButton.style.border = "4px solid #d2e459"
-            startButton.style.color = "#d2e459"
-        }else{
-            startButton.style.border = "4px solid #be3f39"
-            startButton.style.color = "#be3f39"
-        }
     }
 
     function startGame(){
@@ -52,15 +44,14 @@ let skecth3 = (p)=>{
         startButton.style.display = "none"
         snake = new Snake("#ffffff")
         food = new Food()
-        p.draw()
-        p.loop()
+        p.frameRate(7)
     }
 
     let buttons = container.querySelectorAll("button.down,button.up,button.left,button.right")
-    buttons[0].addEventListener("click", ()=>{ snake.dir(0, -1)})
-    buttons[1].addEventListener("click", ()=>{ snake.dir(-1, 0)})
-    buttons[2].addEventListener("click", ()=>{ snake.dir(1, 0) })
-    buttons[3].addEventListener("click", ()=>{ snake.dir(0, 1) })
+    buttons[0].addEventListener("click", ()=> snake.dir( 0, -1))
+    buttons[1].addEventListener("click", ()=> snake.dir(-1,  0))
+    buttons[2].addEventListener("click", ()=> snake.dir( 1,  0))
+    buttons[3].addEventListener("click", ()=> snake.dir( 0,  1))
 
     class Snake{
         constructor(color, ai){

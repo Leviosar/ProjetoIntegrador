@@ -1,3 +1,4 @@
+let snake, snake2
 let skecth4 = (p)=>{
     const container = document.querySelector("#canvas-4")
     const width = innerWidth * 0.8
@@ -6,7 +7,7 @@ let skecth4 = (p)=>{
     const cols = Math.floor(width/scl)
     const rows = Math.floor(height/scl)
     let startButton = container.querySelector("button.start-button")
-    let snake
+
     let food
     let timer
     let condition = false
@@ -15,8 +16,7 @@ let skecth4 = (p)=>{
         startButton.addEventListener("click", ()=>{
             startGame()
         })
-        p.frameRate(50)
-        p.noLoop()
+        p.frameRate(0)
     }
 
     p.draw = ()=>{
@@ -28,56 +28,42 @@ let skecth4 = (p)=>{
             snake2.show()
             snake.update()
             snake.show()
-            if(snake.eat(food)){
-                food = new Food()
-                clearTimeout(timer)
-                timer = setTimeout(()=>{
-                    gameOver(false)
-                }, 10000)
-            }
-            if(snake2.eat(food)){
+            snake.die(snake2)
+            if(snake.eat(food) || snake2.eat(food)){
                 food = new Food()
             }
         }
     }
 
-
     function gameOver(condition){
-        p.noLoop()
+        p.frameRate(0)
         startButton.style.display = "inline-block"
-        if(condition){
-            startButton.style.border = "4px solid #d2e459"
-            startButton.style.color = "#d2e459"
-        }else{
-            console.log("fodeu")
-            startButton.style.border = "4px solid #be3f39"
-            startButton.style.color = "#be3f39"
-        }
     }
 
     function startGame(){
         startButton.style.display = "none"
         snake = new Snake("#ffffff", false)
         snake2 = new Snake("#000000", true)
-        timer = setTimeout(()=>{
-            gameOver(false)
-        }, 10000)
-        condition = true
         food = new Food()
-        p.draw()
-        p.loop()
+        p.frameRate(7)
+        condition = true
+        let buttons = container.querySelectorAll("button.down,button.up,button.left,button.right")
+        buttons[0].addEventListener("click", ()=>{ snake.dir(0, -1)}) //UP
+        buttons[1].addEventListener("click", ()=>{ snake.dir(-1, 0)}) //LEFT
+        buttons[2].addEventListener("click", ()=>{ snake.dir(1, 0) }) //RIGHT
+        buttons[3].addEventListener("click", ()=>{ snake.dir(0, 1) }) //DOWN
     }
-
-    let buttons = container.querySelectorAll("button.down,button.up,button.left,button.right")
-    buttons[0].addEventListener("click", ()=>{ snake.dir(0, -1)}) //UP
-    buttons[1].addEventListener("click", ()=>{ snake.dir(-1, 0)}) //LEFT
-    buttons[2].addEventListener("click", ()=>{ snake.dir(1, 0) }) //RIGHT
-    buttons[3].addEventListener("click", ()=>{ snake.dir(0, 1) }) //DOWN
 
     class Snake{
         constructor(color, ai){
-            this.x = width/2 - (scl/2);
-            this.y = height/2 - (scl/2);
+            if(ai){
+                this.x = width - scl
+                this.y = height - scl
+            }else{
+                this.x = scl;
+                this.y = scl;    
+            }
+
             this.xspeed = 0;
             this.yspeed = 0;
             this.total = 0;
@@ -112,8 +98,8 @@ let skecth4 = (p)=>{
             
             this.tail[this.total-1] = [this.x, this.y]
 
-            this.x = this.x+this.xspeed*(scl/8)
-            this.y = this.y+this.yspeed*(scl/8)
+            this.x = this.x+this.xspeed * scl
+            this.y = this.y+this.yspeed * scl
 
             this.x = p.constrain(this.x, 0, width-scl)
             this.y = p.constrain(this.y, 0, height-scl)
@@ -137,12 +123,23 @@ let skecth4 = (p)=>{
         eat(food){
             if(p.dist(this.x, this.y, food.x, food.y) < scl){
                 this.total++
-                if(this.ai == false && this.total > 3){
-                    gameOver(true)
-                }
                 return true
             } 
             return false
+        }
+
+        die(snake){
+            for (let i = 0; i < this.tail.length; i++) {
+                if (this.x == this.tail[i][0] && this.y ==this.tail[i][1]) {
+                    gameOver(false)
+                }
+            }
+
+            for (let i = 0; i < snake.length; i++) {
+                if (this.x == snake.tail[i][0] && this.y == snake.tail[i][1]) {
+                    gameOver(false)
+                }
+            }
         }
     }
 

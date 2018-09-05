@@ -1,0 +1,99 @@
+<html>
+<head>
+	<title>Bubblesort</title>
+	<meta charset="utf-8">
+	
+	<!-- Tag meta/viewport para otimização em mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<!-- Estilos próprios deste projeto -->
+	<link rel="stylesheet" type="text/css" href="../../css/input.css">
+	<link rel="stylesheet" type="text/css" href="../../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../../css/img.css">
+
+	<!-- Estilo customizado para esta experiência -->
+	<link rel="stylesheet" type="text/css" href="bubble.css">
+	
+	<!-- Fontes -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+	<!-- p5.js CDN Externo -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+
+</head>
+<body>
+	<div class="container columns align-center explanation" id="container">
+	
+			<h2 class="mb-4 mt-4">Bubblesort</h2>
+
+			<!-- Troque a cor do span abaixo conforme a experiência -->
+			
+			<p class="mb-4"><span>Programação</span></p>
+			
+			<ul class="dotBar">
+				<!-- Quantidade de circulos iguais a de textos da experiência -->
+			</ul>
+
+			<div class="content-container">
+				<div class="content window">
+					<p>Ordenar as coisas pode não parecer um problema complicado a primeira vista mas se você estuda programação provavelmente já ouviu falar nos "algoritmos de sort". Existem diversos deles, mas vamos nos focar no pior: o bubblesort.</p>
+				</div>
+				<div class="content window">
+					<p>Se te dessem uma lista com cinco números e você tivesse que ordenar ela crescentemente, seria bem fácil né?</p>
+					<div class="listContainer">
+						<button>3</button>
+						<button>2</button>
+						<button>1</button>
+						<button>5</button>
+						<button>4</button>
+					</div>
+					<p>E se essa lista tivesse 1000 elementos?</p>
+				</div>
+				<div class="content window">
+					<p>Nesse caso precisamos recorrer a poder computacional e principalmente a um algoritmos que possam organizar a lista de uma maneira sistemática. Como eu disse, vamos falar sobre o <span class="text-blue">bubblesort</span>, já que apesar de ter uma péssima performance ele é simples de se entender.</p>
+				</div>
+				<div class="content window">
+					<p>Ele funciona da seguinte maneira, começando pelo primeiro número da lista, o computador irá comparar esse número com o seu vizinho da direita, caso o vizinho seja menor os dois trocam de lugar na lista, caso o contrário o computador segue em frente até o final da lista.</p>
+				</div>
+				<div class="content window">
+					<p>No exemplo a seguir, uma lista de 18 elementos randômicos é ordenada pela altura, o computador compara os dois elementos (a e b) em destaque, caso os elementos estejam em laranja, significa que <span class="text-orange">a é maior do que b</span> e por isso ocorrerá um <i>swap</i> (troca) entre os valores</p>	
+				</div>
+				<div id="canvas-1" class="content window">
+					<div class="controlPanel">
+						<button><i class="fas fa-fast-backward"></i></button>
+						<button><i class="fas fa-redo-alt"></i></button>
+						<button><i class="fas fa-pause"></i></button>
+						<button><i class="fas fa-fast-forward"></i></button>
+					</div>		
+				</div>
+				<div class="content window">
+					<p>Essa metodologia tem diversos contras, principalmente relacionados ao tempo de execução e alguns prós como a simplicidade de se entender o algoritmo e sua eficiência para dados que estejam quase ordenados, ou seja, listas que não estejam rândomicamente embaralhadas.</p>
+				</div>
+				<div class="content window">
+					<p>No geral, sua performance é dada pela fórmula <span class="text-orange">n²</span> onde n é o número de elementos da lista, mas em listas quase ordenadas sua performance é superior aos outros algoritmos, como no exemplo seguinte onde é comparado com o selection sort.</p>
+				</div>
+				<div id="canvas-2" class="content window">
+				</div>
+				<div class="content window">
+						<p>So long</p>
+				</div>
+			</div>
+
+			<a href="../../xplist.html"><button class="button">Fim da experiência</button></a>
+	</div>
+	
+	<!-- Frameworks -->
+
+	<!-- Font-Awesome - CDN externo -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../../js/classes/Scroller.js"></script>
+	<script type="text/javascript" src="../../js/classes/Experience.js"></script>
+	<script type="text/javascript" src="js/bubble.js"></script>
+	<script defer type="text/javascript" src="js/canvas1.js"></script>
+	<script defer type="text/javascript" src="js/canvas2.js"></script>
+	<script defer type="text/javascript" src="js/canvas3.js"></script>
+
+</body>
+</html>
