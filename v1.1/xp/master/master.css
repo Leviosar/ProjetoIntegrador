@@ -1,0 +1,92 @@
+body{
+  width: 100vw;
+  overflow: hidden;
+  margin: 0;
+}
+
+p {
+  color: white;
+  font-family: Kollektif;
+}
+
+body > main{
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+body > main > header{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 25vh;
+  background: transparent;
+  margin-top: 5vh;
+}
+
+body > main > header > *{
+  margin: 0;
+}
+
+body > main > header > ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  min-width: 80vw;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+body > main > header > ul > li {
+  color: white;
+  font-size: 8vw;
+  transition: ease .2s;
+  background: transparent !important;
+}
+
+body > main > section{
+  will-change: transform;
+  display: flex;
+  flex-direction: row;
+  min-height: 75vh;
+  transition: .3s ease;
+}
+
+body > main > section > div {
+  display: flex;
+  flex: none;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+body > main > section > div > p {
+  width: 80%;
+  max-height: 100%;
+}
+
+body > main > section > div > button.button{
+  width: 80%;
+  font-size: 1.7em;
+}
+
+div.hud {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  height: 12vh;
+  justify-content: center;
+  align-items: center;
+}
+
+div.hud > div {
+  flex-grow: 1;
+  color: white;
+  font-size: 15vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5vh;
+}

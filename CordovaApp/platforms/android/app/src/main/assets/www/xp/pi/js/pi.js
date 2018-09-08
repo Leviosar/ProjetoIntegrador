@@ -1,19 +1,15 @@
-var container = document.querySelector('div.canvas')
-var range = document.querySelector('input.range')
-var button = document.querySelector('button')
-var pause = document.querySelector('div.pause')
-var play = document.querySelector('div.play')
-var undo = document.querySelector('div.undo')
-var progress = document.querySelector('div.progressbar-inside')
-var perc = 0;
-var xp = new Experience(10, "f4c242")
-button.addEventListener('click', ev=> {
-    window.location = '../../xplist.html'
-})
+let container = document.querySelector('div.canvas')
+
+let buttons = {
+    play : document.querySelector('main > section > div > div.hud > div.play'),
+    pause : document.querySelector('main > section > div > div.hud > div.pause'),
+    undo : document.querySelector('main > section > div > div.hud > div.undo'),
+    final: document.querySelector('main > section > div > button.button')
+}
+
+let xp = new Experience(9, "f4c242")
 
 function setup() {
-
-    progress.style.width = (range.value/4).toString() + '%'
 
     w = displayHeight * 0.5;
     x = createCanvas(w,w)
@@ -27,43 +23,41 @@ function setup() {
     strokeWeight(2)
     ellipse(0,0,w,w)
 
-    // Draws PI
-    fill('#f4c242')
-    textSize(100)
-    textAlign(CENTER, CENTER);
-    text('π', 0, 0)
-
     //Lock framerate
     frameRate(0)
 
     //Digitos de pi em String
     pi = returnPi();
     piDigits = pi.split('');
-    for (var i = 0; i < piDigits.length ; i++) {
+    for (let i = 0; i < piDigits.length ; i++) {
         piDigits[i] = parseInt(piDigits[i])
     }
     
     // indice atual
     index = 0;
-    range.value = 0
-}   
+}
+
+// Final button event
+buttons.final.addEventListener('click', ev=> {
+    window.location = '../../xplist.html'
+})
 
 //Play button event
-play.addEventListener('click', function playSketch(){
-    play.style.color = '#34cd6f'
-    pause.style.color = 'white'
+buttons.play.addEventListener('click', function playSketch(){
+    buttons.play.style.border = '2px solid #f4c242'
+    buttons.pause.style.border = '2px solid white'
     frameRate(15)
 })
 
 //Pause button event
-pause.addEventListener('click', function pauseSketch(){
-    pause.style.color = '#34cd6f'
-    play.style.color = 'white'
+buttons.pause.addEventListener('click', function pauseSketch(){
+    buttons.pause.style.border = '2px solid #f4c242'
+    buttons.play.style.border = '2px solid white'
     frameRate(0)
 })
 
 //Reset button event
-undo.addEventListener('click', resetSketch)
+buttons.undo.addEventListener('click', resetSketch)
 
 //Resets the sketch and redefines all values
 function resetSketch(){
@@ -71,7 +65,6 @@ function resetSketch(){
     clear();
     translate(width/2, height/2)
     index = 0;
-    range.value = 0
     stroke("#f4c242")
     noFill()
     strokeWeight(2)
@@ -81,29 +74,49 @@ function resetSketch(){
 
 function draw() {
     background('rgba(100%, 100%, 100%, 0)')
-    range.value = parseInt(range.value) + 2;
-    index = parseInt(range.value);
+
+    index++;
     translate(width/2, height/2)
     digit = piDigits[index]
     nextDigit = piDigits[index+1]
+
+    switch(digit){
+        case 0: stroke("#f4c242")
+        break;
+        case 1: stroke("#edc04e")
+        break;
+        case 2: stroke("#efc55b")
+        break;
+        case 3: stroke("#edc665")
+        break;
+        case 4: stroke("#efcc75")
+        break;
+        case 5: stroke("#eacc81")
+        break;
+        case 6: stroke("#edd495")
+        break;
+        case 7: stroke("#edd7a1")
+        break;
+        case 8: stroke("#efdeb3")
+        break;
+        case 9: stroke("#ede0c0")
+        break;
+    }
     
     a1 = map(digit, 0, 10, 0, TWO_PI)
     a2 = map(nextDigit, 0, 10, 0, TWO_PI)
     
-    x1 = w/2 * cos(a1) - random(TWO_PI/10, 1)
-    y1 = w/2 * sin(a1) - random(TWO_PI/10, 1)
+    x1 = w/2 * cos(a1)
+    y1 = w/2 * sin(a1)
 
-    x2 = w/2 * cos(a2) - random(TWO_PI/10, 1)
-    y2 = w/2 * sin(a2) - random(TWO_PI/10, 1)
+    x2 = w/2 * cos(a2)
+    y2 = w/2 * sin(a2)
 
-    strokeWeight(2)
-    stroke('#ffffff')
-    line(x1, y1, x2, y2)
+    strokeWeight(1)
+    bezier(x1, y1, random(0, cos(a1) * 50), random(0, sin(a1) * 50), random(0, cos(a2) *2), random(0, sin(a2) * 50), x2, y2)
+    // line(x1, y1, x2, y2)
 
-    progress.style.width = (range.value/4).toString() + '%'
-
-    if(range.value > 396){
+    if(index > 350){
         resetSketch();
-        range.value = 0;
     }
 }

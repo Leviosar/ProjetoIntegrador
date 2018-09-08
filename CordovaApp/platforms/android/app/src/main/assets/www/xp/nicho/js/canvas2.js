@@ -42,5 +42,3 @@ let skecth2 = (p)=>{
         
     }
 }
-
-let canvas2 = new p5(skecth2, "canvas-2")

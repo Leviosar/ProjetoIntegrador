@@ -1,6 +1,6 @@
 class Experience{
     constructor(max, color) {
-        this.xpContent = document.querySelector("div.explanation p")
+        this.xpContent = document.querySelector("body > main > header > p")
         this.color = color
         this.dots
         this.contents

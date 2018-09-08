@@ -30,5 +30,3 @@ let skecth1 = (p)=>{
         if(cont == 0) condition = true    
     }
 }
-
-let canvas1 = new p5(skecth1, "canvas-1")

@@ -18,37 +18,40 @@ let skecth2 = (p)=>{
     }
 
     p.mouseClicked = ()=>{
+        let x = p.constrain(p.mouseX, 15, (width2-15))
+        let y = p.constrain(p.mouseY, 15, (height2-15))
         p.clear()
         p.stroke(255)
         p.strokeWeight(4)
         p.line(0, height2/2, width2, height2/2)
         p.line(width2/2, height2, width2/2, 0)
-        display.innerText = "(" + parseInt(p.mouseX - width2/2) +"," + parseInt(height2/2 - p.mouseY) +")"
+        display.innerText = "(" + parseInt(x - width2/2) +"," + parseInt(height2/2 - y) +")"
         p.strokeWeight(4)
         p.stroke("#f4c242") 
-        p.line(p.mouseX, p.mouseY, p.mouseX, height+2)
+        p.line(x, y, x, height2/2)
         p.stroke("#d2e459")
-        p.line(p.mouseX, p.mouseY, width/2, p.mouseY)
+        p.line(x, y, width2/2, y)
         p.fill("#ffffff")
         p.stroke("#ffffff")
-        p.ellipse(p.mouseX, p.mouseY, 15)
+        p.ellipse(x, y, 15)
     }
 
     p.touchMoved = ()=>{
+        let x = p.constrain(p.mouseX, 15, (width2-15))
+        let y = p.constrain(p.mouseY, 15, (height2-15))
         p.clear()
         p.stroke(255)
         p.strokeWeight(4)
         p.line(0, height2/2, width2, height2/2)
         p.line(width2/2, height2, width2/2, 0)
-        display.innerText = "(" + parseInt(p.mouseX - width2/2) +"," + parseInt(height2/2 - p.mouseY) +")"
+        display.innerText = "(" + parseInt(x - width2/2) +"," + parseInt(height2/2 - y) +")"
         p.strokeWeight(4)
         p.stroke("#f4c242") 
-        p.line(p.mouseX, p.mouseY, p.mouseX, height+2)
+        p.line(x, y, x, height2/2)
         p.stroke("#d2e459")
-        p.line(p.mouseX, p.mouseY, width/2, p.mouseY)
+        p.line(x, y, width2/2, y)
         p.fill("#ffffff")
         p.stroke("#ffffff")
-        p.ellipse(p.mouseX, p.mouseY, 15)
+        p.ellipse(x, y, 15)
     }
 }
-let canvas2 = new p5(skecth2, 'canvas-2')

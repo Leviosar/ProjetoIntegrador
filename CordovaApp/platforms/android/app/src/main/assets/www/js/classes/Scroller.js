@@ -7,6 +7,7 @@ class Scroller {
         this.toLeft = (container.scrollWidth > container.offsetWidth)
         this.steps = document.querySelectorAll(triggers)
         this.max = max-1
+        this.ev
         this.setup()
     }
 
@@ -27,7 +28,17 @@ class Scroller {
         //     else 
         //         element.style.transform = 'scale(1)'
         // })
+
         this.current = step - 1
+
+        
+        this.ev = new CustomEvent('move', {
+            detail:{
+                current: this.current
+            }
+        })
+
+        this.container.dispatchEvent(this.ev)
 
         if (this.current < 0 || this.current > this.max)
             this.current = 0
@@ -36,7 +47,7 @@ class Scroller {
             this.current = this.windows.length - 1
 
     
-        return this.container.style.transform = `translate3d(${this.current * -100}%, 0, 0)`
+        return this.container.style.transform = `translateX(${this.current * -100}%)`
     }
 
     next() {

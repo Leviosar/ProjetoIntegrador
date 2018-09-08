@@ -10,65 +10,66 @@
 	<link rel="stylesheet" type="text/css" href="../../css/input.css">
 	<link rel="stylesheet" type="text/css" href="../../css/main.css">
 	<link rel="stylesheet" type="text/css" href="../../css/img.css">
+	<link rel="stylesheet" type="text/css" href="../master/master.css">
 	<link rel="stylesheet" type="text/css" href="pi.css">
 	
 	<!-- Fontes -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-
 	<!-- p5.js CDN Externo -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+	<script type="text/javascript" src="../../vendor/p5js/p5.min.js"></script>
 
 </head>
 <body>
-	<div class="container columns align-center explanation" id="container">
-	
-			<h2 class="mb-4 mt-4">As aventuras de PI</h2>
-			<p class="mb-4"><span>Matemática</span></p>
+	<main>
+		<header>
+			<h2>As aventuras de PI</h2>
+			<p><span>Matemática</span></p>
+			<ul class="dotBar"><!-- Circulos baseados no tamanho de experiência--></ul>		
+		</header>
+		
+		<section class="content-container">
 
-			<ul class="dotBar">
-				<!-- Circulos baseados no tamanho de experiência	 -->
-			</ul>
-
-			<div class="content-container">
+				<!-- #0 -->
 				<div class="content window">
 					<p>PI. 3,1415 e provavelmente é só até ai que você sabe, além de claro, a fórmula</p>
 					<span class="formula">π = C/d</span>
 				</div>
 
+				<!-- #1 -->
 				<div class="content window">
 					<p>Saindo um pouco da <span class="text-orange">matemática</span>, PI é provavelmente o número mais "mágico" que você vai conhecer. O PI se aventura em todas as disciplinas aqui integradas. O PI está na natureza, desde sempre</p>
 				</div>
-
+				
+				<!-- #2 -->
 				<div class="content window">
 					<p class="mb-4">Na <span class="text-purple">física</span>, com π somos capazes de calcular a circunferência do universo observável. E isso usando apenas 39 dígitos do número e a mesma fórmula que eu mostrei antes, inclusive você pode fazer isso em casa.</p>
 				</div>
-				
+				 
+				<!-- #3 -->
 				<div class="content window">
 					<p class="mb-4">E qual o tamanho de π? A verdade é que tentamos calcular isso fazem milhares de anos por pura curiosidade. O primeiro a tentar foi Arquimedes em 250 a.C. Até o século XVII tinhamos 35 dígitos, no século 19 esse número subiu para 707 dígitos.</p>
 				</div>
 
+				<!-- #4 -->
 				<div class="content window">
 					<p class="mb-4">E aqui entra a <span class="text-blue">programação</span>, o ENIAC em 1949 podia calcular 2000 dígitos. Com nossa tecnologia atual, apenas 60 anos depois, podemos calcular 10 trilhões de dígitos de π.</p>
 				</div>
 
+				<!-- #5 -->
 				<div class="content window">
 					<p class="mb-4">E por que essa fixação toda ao ponto de calcular 10 trilhões de dígitos? Porque a nossa curiosidade é o que move o mundo. A curiosidade de correr atrás de coisas que parecem impossíveis, a mesma curiosidade que eu quero instigar em você.</p>
 				</div>
 
+				<!-- #6 -->
 				<div class="content window">
 					<p class="mb-4">Para finalizar isso, vou juntar a <span class="text-blue">programação</span> e a <span class="text-orange">matemática</span> para mostrar o quanto π pode ser bonito. O padrão a seguir é formado ao designar um ângulo para cada algarismo, e conectar esses ângulos ao próximo digito da sequência</p>
 				</div>
-
+	
+				<!-- #7 -->
 				<div class="content window">
 					
-					<input type="range" name="" class="range" max="400" step="1" value="0">
-
-					<div class="progressbar mt-5">
-						<div class="progressbar-inside"></div>
-					</div>
-
-					<div class="hud mt-5">
+					<div class="hud">
 						<div class="play">
 							<i class="fas fa-play"></i>
 						</div>
@@ -79,18 +80,18 @@
 							<i class="fas fa-undo"></i>
 						</div>
 					</div>
-
-					<div class="canvas mt-5 mb-5"></div>
+	
+					<div class="canvas"></div>
 				</div>
 				
+				<!-- #8 -->
 				<div class="content window">
 					<p>π tem diversas outras aplicações e é provável que eu volte a falar dele aqui, mas por enquanto isso é tudo, continuaremos acompanhando no futuro as aventuras de π.</p>
+					<button class="button">Fim da experiência</button>
 				</div>
-			</div>
+		</section>
+	</main>
 
-
-			<button class="button mt-5 mb-5">Fim da experiência</button>
-	</div>
 	
 	<!-- Frameworks -->
 

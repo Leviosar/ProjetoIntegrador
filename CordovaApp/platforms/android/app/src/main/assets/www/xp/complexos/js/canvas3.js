@@ -40,23 +40,26 @@ let skecth3 = (p)=>{
 
         if(condition){
 
-            pointA.px = p.mouseX - width3/2
-            pointA.py = height3/2 - p.mouseY
-            pointA.x = p.mouseX
-            pointA.y = p.mouseY
+            let x = p.constrain(p.mouseX, 15, (width3-15))
+            let y = p.constrain(p.mouseY, 15, (height3-15))
+
+            pointA.px = x - width3/2
+            pointA.py = height3/2 - y
+            pointA.x = x
+            pointA.y = y
 
             p.strokeWeight(4)
             p.stroke("#f4c242") 
-            p.line(p.mouseX, p.mouseY, p.mouseX, height+2)
+            p.line(x, y, x, height3/2)
             p.stroke("#d2e459")
-            p.line(p.mouseX, p.mouseY, width/2, p.mouseY)
+            p.line(x, y, width3/2, y)
             p.fill("#ffffff")
             p.stroke("#ffffff")
-            p.ellipse(p.mouseX, p.mouseY, 15)
+            p.ellipse(x, y, 15)
             condition = !condition
 
-            let img = parseInt(height3/2 - p.mouseY)
-            let real = parseInt(p.mouseX - width3/2)
+            let img = parseInt(height3/2 - y)
+            let real = parseInt(x - width3/2)
 
             if(img > 0) {
                 img = "+ "+img
@@ -66,28 +69,31 @@ let skecth3 = (p)=>{
 
         }else{
 
-            pointB.px = p.mouseX - width3/2
-            pointB.py = height3/2 - p.mouseY
-            pointB.x = p.mouseX
-            pointB.y = p.mouseY
+            let x = p.constrain(p.mouseX, 15, (width3-15))
+            let y = p.constrain(p.mouseY, 15, (height3-15))
+
+            pointB.px = x - width3/2
+            pointB.py = height3/2 - y
+            pointB.x = x
+            pointB.y = y
 
             p.strokeWeight(4)
             p.stroke("#f4c242") 
-            p.line(pointA.x, pointA.y, pointA.x, height+2)
+            p.line(pointA.x, pointA.y, pointA.x, height3/2)
             p.stroke("#d2e459")
-            p.line(pointA.x, pointA.y, width/2, pointA.y)
+            p.line(pointA.x, pointA.y, width3/2, pointA.y)
             p.fill("#ffffff")
             p.stroke("#ffffff")
             p.ellipse(pointA.x, pointA.y, 15)
 
             p.strokeWeight(4)
             p.stroke("#f4c242") 
-            p.line(p.mouseX, p.mouseY, p.mouseX, height+2)
+            p.line(x, y, x, height3/2)
             p.stroke("#d2e459")
-            p.line(p.mouseX, p.mouseY, width/2, p.mouseY)
+            p.line(x, y, width3/2, y)
             p.fill("#ffffff")
             p.stroke("#ffffff")
-            p.ellipse(p.mouseX, p.mouseY, 15)
+            p.ellipse(x, y, 15)
 
             pointC = sumComplex(pointA, pointB)
             pointC.realX = pointC.px
@@ -95,16 +101,16 @@ let skecth3 = (p)=>{
 
             p.strokeWeight(4)
             p.stroke("#f4c242") 
-            p.line(pointC.realX + width3/2, height3/2 - pointC.realY, pointC.realX + width3/2, height+2)
+            p.line(pointC.realX + width3/2, height3/2 - pointC.realY, pointC.realX + width3/2, height3/2)
             p.stroke("#d2e459")
-            p.line(pointC.realX + width3/2, height3/2 - pointC.realY, width/2, height3/2 - pointC.realY)
+            p.line(pointC.realX + width3/2, height3/2 - pointC.realY, width3/2, height3/2 - pointC.realY)
             p.fill("#f4c242")
             p.stroke("#f4c242")
             p.ellipse(pointC.realX + width3/2, height3/2 - pointC.realY , 15)
 
 
-            let img = parseInt(height3/2 - p.mouseY)
-            let real = parseInt(p.mouseX - width3/2)
+            let img = parseInt(height3/2 - y)
+            let real = parseInt(x - width3/2)
             
             if(img > 0) {
                 img = "+ "+img
@@ -118,21 +124,20 @@ let skecth3 = (p)=>{
         }
     }
 
-    p.touchMoved = ()=>{
-        p.clear()
-        p.stroke(255)
-        p.strokeWeight(4)
-        p.line(0, height3/2, width3, height3/2)
-        p.line(width3/2, height3, width3/2, 0)
-        display.innerText = "(" + parseInt(p.mouseX - width3/2) +"," + parseInt(height3/2 - p.mouseY) +")"
-        p.strokeWeight(4)
-        p.stroke("#f4c242") 
-        p.line(p.mouseX, p.mouseY, p.mouseX, height+2)
-        p.stroke("#d2e459")
-        p.line(p.mouseX, p.mouseY, width/2, p.mouseY)
-        p.fill("#ffffff")
-        p.stroke("#ffffff")
-        p.ellipse(p.mouseX, p.mouseY, 15)
-    }
+    // p.touchMoved = ()=>{
+    //     p.clear()
+    //     p.stroke(255)
+    //     p.strokeWeight(4)
+    //     p.line(0, height3/2, width3, height3/2)
+    //     p.line(width3/2, height3, width3/2, 0)
+    //     display.innerText = "(" + parseInt(p.mouseX - width3/2) +"," + parseInt(height3/2 - p.mouseY) +")"
+    //     p.strokeWeight(4)
+    //     p.stroke("#f4c242") 
+    //     p.line(p.mouseX, p.mouseY, p.mouseX, height3/2)
+    //     p.stroke("#d2e459")
+    //     p.line(p.mouseX, p.mouseY, width/2, p.mouseY)
+    //     p.fill("#ffffff")
+    //     p.stroke("#ffffff")
+    //     p.ellipse(p.mouseX, p.mouseY, 15)
+    // }
 }
-let canvas3 = new p5(skecth3, 'canvas-3')
