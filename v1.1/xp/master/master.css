@@ -90,3 +90,15 @@ div.hud > div {
   align-items: center;
   margin-bottom: 5vh;
 }
+
+div.coinContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+div.coinContainer > p {
+  color: black;
+  display: flex;
+  align-items: center;
+}

@@ -6,19 +6,21 @@ class Usuario{
         this.emailUsuario;    
     }
 
-    async getInfo(){
+    async getInfo(callback){
         this.request('getInfo', null,
         async (response)=>{
             response = await JSON.parse(response)
             this.idUsuario = response.idusuario;
             this.nomeUsuario = response.nome;
             this.emailUsuario = response.email;
+            callback()
         },
-        (errorCode)=>{
+        async (errorCode)=>{
+            errorCode = await JSON.parse(errorCode)
             swal({
-                title: "Erro",
-                text: "Erro" + errorCode,
-                type: "Error"
+                title: errorCode.error,
+                text: errorCode.msg,
+                icon: "error"
             }).then(
                 ()=>{
                     sessionStorage.clear()
@@ -28,17 +30,25 @@ class Usuario{
         })
     }
 
-    async getBadges(){
+    async addCoin(total, callback){
+        let keys = {
+            idusuario: this.idUsuario,
+            value: total
+        }
+
+        this.request('addCoin', keys, callback)
+    }
+
+    async getBadges(callback){
         let keys = {
             idusuario: this.idUsuario
         }
-
         this.request(
             'getBadges', 
             keys,
             async (response) => {
                 let data = await JSON.parse(response)
-                return data;
+                callback(data);
             },
             async (errorCode) =>{
                 let data = await JSON.parse(errorCode)  
@@ -47,29 +57,43 @@ class Usuario{
         )
     }
 
+    async insertBadge(id){
+        let keys = {
+            idusuario: this.idUsuario,
+            idbadge: id
+        }
+
+        this.request(
+            'insertBadge',
+            keys,
+            ()=>{console.log(true)},
+            ()=>{console.log(false)}
+        )
+    }
+
     async signUp(nome,email,senha){
+        
         let keys = {
             nome: nome,
             email: email,
             senha: senha,
         }
 
-
         this.request('signUp', keys, 
-            async (response)=>{
-                console.log(await JSON.parse(response))
+            ()=>{
                 swal({
                     title: "Sucesso",
                     text: "Usuário criado",
-                    type: "success"
+                    icon: "success"
                 })
                 setTimeout(function(){ window.location.href = "./login.html"; }, 1000);     
             }, 
-            (errorCode)=>{
+            async (errorCode)=>{
+                errorCode = await JSON.parse(errorCode)
                 swal({
-                    title: "Erro "+ errorCode,
-                    text: "Algo deu errado. Sorry.",
-                    type: "error"
+                    title: errorCode.error,
+                    text: errorCode.msg,
+                    icon: "error"
                 })        
                 return true;
             }
@@ -88,18 +112,17 @@ class Usuario{
                 window.sessionStorage.setItem('token', response.token)
                 swal({
                     title: "Sucesso",
-                    text: "Login autorizado, redirecionando",
-                    type: "success"
+                    text: "Login realizado, redirecionando",
+                    icon: "success"
                 })
                 setTimeout(()=>location.href = "xplist.html",1500);
             },
             (errorCode)=>{
-                console.log("aqui")
                 let data = JSON.parse(errorCode)
                 swal({
-                    title: "Erro "+ data,
-                    text: "Algo deu errado. Sorry.",
-                    type: "error"
+                    title: data.error,
+                    text: data.msg,
+                    icon: "error"
                 })
             }
         )
@@ -118,7 +141,7 @@ class Usuario{
                 if(response.value == true){
                     swal({
                         title: "Sucesso ao atualizar",
-                        type: "success",
+                        icon: "success",
                         text: "Seus dados foram atualizados"
                     })
                 }
@@ -129,7 +152,7 @@ class Usuario{
                     swal({
                         title: "Erro do excluir",
                         text: "Código do erro:" + errorCode.code,
-                        type: "error"
+                        icon: "error"
                     })
                 }
             }
@@ -149,14 +172,14 @@ class Usuario{
                     swal({
                         title: "Sucesso",
                         text: "Usuário excluido, você será redirecionado",
-                        type: "success"
+                        icon: "success"
                     })
                     setTimeout(()=>location.href = "index.html",1500);
                 }else{
                     swal({
                         title: "Erro",
                         text: "Erro ao excluir o usuário, entre em contato conosco",
-                        type: "error"
+                        icon: "error"
                     })
                 }
             },
@@ -164,7 +187,7 @@ class Usuario{
                 swal({
                     title: "Erro",
                     text: "Erro" + errorCode.status,
-                    type: "error"
+                    icon: "error"
                 })
             }
         )
@@ -184,7 +207,7 @@ class Usuario{
             resposta = true
             callback(await req.text())
         }else{
-            errorCallback(await req.status)
+            errorCallback(await req.text())
         }
         return resposta
     }

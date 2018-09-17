@@ -2,21 +2,21 @@ function menuCheck() {
     if (!menuStatus) {
         blurOn(todo)
         menuStatus = true
-        side.classList += ' side-menu-open'
+        side.style.transform = 'translateX(0%)'
         shadow()
     } else {
         blurOff(todo)
         menuStatus = false
-        side.className = 'side-menu'
+        side.style.transform = 'translateX(-100%)'
         shadow()
     }
 }
 
 function shadow() {
     if (menuStatus) {
-        shadowMenu.style.left = '70vw'
+        shadowMenu.style.transform = 'translateX(233.5%)'
     } else {
-        shadowMenu.style.left = '-30vw'
+        shadowMenu.style.transform = 'translateX(-100%)'
     }
 }
 

@@ -5,7 +5,7 @@ let skecth3 = (p)=>{
     let height = innerWidth * 0.8
     let snake
     let food
-    let scl = 20
+    let scl = width/18
     let cols = p.round(width/scl)
     let rows = p.round(height/scl)
     let startButton = container.querySelector("button.start-button")

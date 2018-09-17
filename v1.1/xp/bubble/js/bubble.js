@@ -1,4 +1,4 @@
-const xp = new Experience(10, '#185e82')
+const xp = new Experience(5, 10, '#185e82')
 
 let canvas1,canvas2,canvas3
 resetEvents()

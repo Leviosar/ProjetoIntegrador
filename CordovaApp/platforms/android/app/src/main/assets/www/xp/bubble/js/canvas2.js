@@ -25,20 +25,25 @@ Array.prototype.shuffle = function() {
     return this;
 }
 
-let arr2 = []
-
-for (let i = 1; i < 18; i++) {
-    arr2[i-1] = Math.floor(container2.offsetHeight * 0.3/i)
-}
-
-arr2 = arr2.shuffle()
-
 let skecth2 = (p)=>{
+    
+
+
+        
+    let arr2 = []
     width2 = container2.offsetWidth * 0.9, height2 = container2.offsetHeight * 0.3
     scl = width2/2/18
     frame = 3
     total = 0
     p.setup = ()=>{
+
+
+        for (let i = 1; i < 18; i++) {
+            arr2[i-1] = Math.floor(container2.offsetHeight * 0.3/i)
+        }
+    
+        arr2 = arr2.shuffle()
+
         p.createCanvas(width2, height2)
         p.strokeCap(p.SQUARE);
         p.frameRate(40)

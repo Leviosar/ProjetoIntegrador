@@ -1,4 +1,4 @@
-const xp = new Experience(10, '#d2e459')
+const xp = new Experience(3,10, '#d2e459')
 
 let canvas1,canvas2,canvas3,canvas4
 

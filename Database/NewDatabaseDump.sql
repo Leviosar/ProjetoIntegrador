@@ -77,7 +77,6 @@ CREATE TABLE IF NOT EXISTS `oob_bd`.`avatar` (
 )
 ENGINE = InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS `oob_bd`.`usuario_avatar` (
     `idusuario` INT NOT NULL,
     `idtable1` INT NOT NULL,
@@ -87,10 +86,20 @@ CREATE TABLE IF NOT EXISTS `oob_bd`.`usuario_avatar` (
 )
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `oob_bd`.`carteira` (
+CREATE TABLE IF NOT EXISTS `oob_bd`.`transacao` (
     `idusuario` INT NOT NULL,
-    `saldo` INT NOT NULL,
-    `ultimaTransacao` TIMESTAMP NOT NULL,
+    `valor` INT NOT NULL,
+    `horario` TIMESTAMP NOT NULL,
     FOREIGN KEY (`idusuario`) REFERENCES `oob_bd`.`usuario` (`idusuario`)
+)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `oob_bd`.`rate` (
+    `idexperiencia` INT NOT NULL,
+    `idusuario` INT NOT NULL,
+    `time` TIMESTAMP NOT NULL,
+    `rate` INT NOT NULL,
+    FOREIGN KEY (`idusuario`) REFERENCES `oob_bd`.`usuario` (`idusuario`),
+    FOREIGN KEY (`idexperiencia`) REFERENCES `oob_bd`.`experiencia` (`idexperiencia`)
 )
 ENGINE = InnoDB;

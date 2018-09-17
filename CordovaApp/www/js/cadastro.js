@@ -1,11 +1,11 @@
 var fields = document.querySelectorAll('form input')
 var button = document.querySelector('button[type=button]')
 
-button.addEventListener('click', ev=>{
-	c_user.signUp(fields[0].value, fields[1].value, fields[2].value)
+button.addEventListener('click', ()=>{
+	c_user.signUp(fields[0].value.trim(), fields[1].value.trim(), fields[2].value.trim())
 })
 
-button.addEventListener('keypress', ev=>{
+button.addEventListener('keypress', ()=>{
 	if(ev.code == "Enter")
-		c_user.signUp(fields[0].value, fields[1].value, fields[2].value)
+		c_user.signUp(fields[0].value.trim(), fields[1].value.trim(), fields[2].value.trim())
 })

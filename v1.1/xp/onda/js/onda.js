@@ -1,4 +1,4 @@
-const xp = new Experience(8, "#daa5e2")
+const xp = new Experience(2, 8, "#daa5e2")
 
 xp.scrollX.container.addEventListener('move', (ev)=>{
     switch(ev.detail.current){

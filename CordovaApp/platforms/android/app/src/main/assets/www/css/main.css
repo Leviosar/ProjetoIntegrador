@@ -322,7 +322,6 @@ div#text-header {
     width: 70vw;
     position: absolute;
     top: 0;
-    left: -70vw;
     transition: ease-in-out 0.5s;
     color: white;
     font-family: Kollektif;
@@ -330,7 +329,8 @@ div#text-header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+	justify-content: center;
+	transform: translateX(-100%)
 }
 
 .side-menu-open {
@@ -392,7 +392,7 @@ div.shadow-menu {
 	height: 100vh;
 	position: absolute;
 	top: 0;
-	left: -30vw;
+	transform: translate(-100%);
 	transition: ease .2s;
 	z-index: 9999;
 }
@@ -500,9 +500,9 @@ a:focus{
 	outline: none;
 }
 
-.swal-overlay{
+/* .swal-overlay{
 	background-color: rgba(51,144,201, 0.1);
-}
+} */
 
 .swal-modal{
 	width: 90vw;

@@ -20,10 +20,6 @@ switch(fileName[0]){
     break;
 }
 
-if(fileName != "login.html" && fileName != "cadastro.html"){
-    c_user.getInfo()
-}
-
 /* Start of CRUD requests */
 
 function getUserData(){

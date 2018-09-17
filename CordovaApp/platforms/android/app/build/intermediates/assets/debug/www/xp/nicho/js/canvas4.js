@@ -3,7 +3,7 @@ let skecth4 = (p)=>{
     const container = document.querySelector("#canvas-4")
     const width = innerWidth * 0.8
     const height = innerWidth * 0.8
-    const scl = 20
+    const scl = width / 18
     const cols = Math.floor(width/scl)
     const rows = Math.floor(height/scl)
     let startButton = container.querySelector("button.start-button")
@@ -21,7 +21,7 @@ let skecth4 = (p)=>{
 
     p.draw = ()=>{
         if(condition){
-            p.noStroke()
+            p.stroke(0)
             p.clear()
             food.show()
             snake2.update([food.x, food.y])

@@ -32,7 +32,8 @@ class User{
 				echo json_encode($response);
 			}
 			else{
-				throw new Exception("Não autorizado;", 401);
+				http_response_code(401);
+				die(json_encode(['error' => 'Falha de autenticação', 'msg' => 'Dados incorretos']));
 			}
 
 		}catch(Exception $e){
@@ -53,7 +54,8 @@ class User{
 				$return = $query->fetch(PDO::FETCH_ASSOC);
 				print_r(json_encode($return));
 			}else{
-				throw new Exception("Erro de autenticação", 409);
+				http_response_code(409);
+				die(json_encode(['error' => 'Falha de autenticação', 'msg' => 'Você será redirecionado']));
 			}
 
 		}catch(Exception $e){
@@ -61,19 +63,57 @@ class User{
 		}
 	}
 
-	function getBadges($KEYS, $token){
-		if($this->auth($token, $KEYS['idiusuario'])){
+	function manageWallet($KEYS, $token){
+		print_r($KEYS);
+		if ($this->auth($token, $KEYS['idusuario'])) {
 			try{
-				$query = $this->connection->prepare("SELECT * FROM usuario_badge WHERE idusuario = :idusuario");
+				$query = $this->connection->prepare('INSERT INTO transacao (idusuario, valor) VALUES (?, ?)');
+				$query->bindParam(1, $KEYS['idusuario']);
+				$query->bindParam(2, $KEYS['value']);
+				$query->execute();
+			}catch(Exception $e){
+				die('Erro'. $e->getMessage());
+			}
+		}
+	}
+
+	function getBadges($KEYS, $token){
+		if($this->auth($token, $KEYS['idusuario'])){
+			try{
+				$query = $this->connection->prepare("SELECT b.idbadge, b.nome, b.descricao FROM usuario_badge AS ub INNER JOIN badge AS b ON b.idbadge = ub.idbadge WHERE idusuario = :idusuario");
 				$query->bindParam('idusuario', $KEYS['idusuario'], PDO::PARAM_STR);
 				$query->execute();
 				$query = $query->fetchAll(PDO::FETCH_ASSOC);
-				print_r(json_encode($query));
+				die(json_encode($query));
 			}catch(Exception $e){
 				die("Erro ao buscar as insígnias: " . $e->getMessage());
 			}
 		}else{
-			throw new Exception("Erro de autenticação:", 409);
+			http_response_code(409);
+			die(json_encode(['error' => 'Falha de autenticação', 'msg' => 'Você será redirecionado']));
+		}
+	}
+
+	function insertBadges($KEYS, $token){
+		if($this->auth($token, $KEYS['idusuario'])){
+			try{
+				$query = $this->connection->prepare("INSERT INTO usuario_badge (idbadge, idusuario) VALUES (?, ?)");
+				$query->bindParam(1, $KEYS['idbadge']);
+				$query->bindParam(2, $KEYS['idusuario']);
+				$query->execute();
+
+				if ($query->rowCount() > 0) {
+					die(json_encode(['error' => 'Sucesso']));
+				}else{
+					http_response_code(403);
+					die(json_encode(['error' => 'Não autorizado', 'msg' => 'Você será redirecionado']));
+				}
+			}catch(Exception $e){
+				die("Erro ao buscar as insígnias: " . $e->getMessage());
+			}
+		}else{
+			http_response_code(409);
+			die(json_encode(['error' => 'Falha de autenticação', 'msg' => 'Você será redirecionado']));
 		}
 	}
 	
@@ -83,8 +123,7 @@ class User{
 			$auth->bindParam(':token', $token, PDO::PARAM_STR);
 			$auth->bindParam(':idusuario', $idUser, PDO::PARAM_STR);
 			$auth->execute();
-
-			if($auth->rowCount() == 1){
+			if($auth->rowCount() > 0){
 				return true;
 			}else{
 				throw new Exception("Error - Authentication error", 401);
@@ -94,7 +133,7 @@ class User{
 			$atualizaToken->bindParam(':token', $token, PDO::PARAM_STR);
 			$atualizaToken->execute();
 		}catch(Exception $e){
-			die("Error: Internal server error - " . $e->getMessage());
+			die("Error: Internal server error cu - " . $e->getMessage());
 		}
 	}
     

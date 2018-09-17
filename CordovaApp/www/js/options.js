@@ -6,7 +6,7 @@ inputs[1].value = "Editar e-mail"
 
 for (let i = 0; i < inputs.length-1; i++) {
     inputs[i].addEventListener("click", ()=>{    
-        console.log(inputs[0])
+        console.log(c_user)
         inputs[0].value = c_user.nomeUsuario
         inputs[1].value = c_user.emailUsuario
 
