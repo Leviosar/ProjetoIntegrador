@@ -6,13 +6,14 @@ class Usuario{
         this.emailUsuario;    
     }
 
-    async getInfo(){
+    async getInfo(callback = ()=>{}){
         this.request('getInfo', null,
         async (response)=>{
             response = await JSON.parse(response)
             this.idUsuario = response.idusuario;
             this.nomeUsuario = response.nome;
             this.emailUsuario = response.email;
+            callback()
         },
         async (errorCode)=>{
             errorCode = await JSON.parse(errorCode)
@@ -29,17 +30,43 @@ class Usuario{
         })
     }
 
-    async getBadges(){
+    async addCoin(total, callback){
+        let keys = {
+            idusuario: this.idUsuario,
+            value: total
+        }
+
+        this.request('addCoin', keys, callback)
+    }
+
+    async addView(value, id ,callback){
+        let keys = {
+            idusuario: this.idUsuario,
+            value: value,
+            idexperiencia: id
+        }
+
+        this.request('addView', keys, callback)
+    }
+
+    async getMoney(callback){
         let keys = {
             idusuario: this.idUsuario
         }
 
+        this.request('getMoney', keys, callback)
+    }
+
+    async getBadges(callback){
+        let keys = {
+            idusuario: this.idUsuario
+        }
         this.request(
             'getBadges', 
             keys,
             async (response) => {
                 let data = await JSON.parse(response)
-                return data;
+                callback(data);
             },
             async (errorCode) =>{
                 let data = await JSON.parse(errorCode)  
@@ -48,13 +75,27 @@ class Usuario{
         )
     }
 
+    async insertBadge(id){
+        let keys = {
+            idusuario: this.idUsuario,
+            idbadge: id
+        }
+
+        this.request(
+            'insertBadge',
+            keys,
+            ()=>{console.log(true)},
+            ()=>{console.log(false)}
+        )
+    }
+
     async signUp(nome,email,senha){
+        
         let keys = {
             nome: nome,
             email: email,
             senha: senha,
         }
-
 
         this.request('signUp', keys, 
             ()=>{

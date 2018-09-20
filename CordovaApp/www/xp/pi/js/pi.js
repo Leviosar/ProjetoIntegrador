@@ -7,7 +7,7 @@ let buttons = {
     final: document.querySelector('main > section > div > button.button')
 }
 
-let xp = new Experience(9, "f4c242")
+let xp = new Experience(1, 9, "f4c242")
 
 function setup() {
 
@@ -38,9 +38,9 @@ function setup() {
 }
 
 // Final button event
-buttons.final.addEventListener('click', ev=> {
-    window.location = '../../xplist.html'
-})
+// buttons.final.addEventListener('click', ev=> {
+//     window.location = '../../xplist.html'
+// })
 
 //Play button event
 buttons.play.addEventListener('click', function playSketch(){

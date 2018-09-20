@@ -26,7 +26,9 @@ try{
 		case 'updateUser': die($usuario->updateUser($KEYS, $HEADER['token']));
 		case 'insertBadge': die($usuario->insertBadges($KEYS, $HEADER['token']));
 		case 'addCoin': die($usuario->manageWallet($KEYS, $HEADER['token']));
+		case 'getMoney': die($usuario->getMoney($KEYS, $HEADER['token']));
 		case 'rateXp': die($xp->rate($KEYS));
+		case 'addView': die($usuario->addView($KEYS, $HEADER['token']));
 		default: throw new Exception("Erro - Metodo não encontrado", 404);
 	}	
 } catch (Exception $e) {

@@ -6,7 +6,7 @@ class Usuario{
         this.emailUsuario;    
     }
 
-    async getInfo(callback){
+    async getInfo(callback = ()=>{}){
         this.request('getInfo', null,
         async (response)=>{
             response = await JSON.parse(response)
@@ -37,6 +37,24 @@ class Usuario{
         }
 
         this.request('addCoin', keys, callback)
+    }
+
+    async addView(value, id ,callback){
+        let keys = {
+            idusuario: this.idUsuario,
+            value: value,
+            idexperiencia: id
+        }
+
+        this.request('addView', keys, callback)
+    }
+
+    async getMoney(callback){
+        let keys = {
+            idusuario: this.idUsuario
+        }
+
+        this.request('getMoney', keys, callback)
     }
 
     async getBadges(callback){

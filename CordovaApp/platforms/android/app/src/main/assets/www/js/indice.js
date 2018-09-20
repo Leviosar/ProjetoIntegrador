@@ -27,31 +27,17 @@ backButton.addEventListener('click', ()=>{
     logOut()
 })
 
-function menuCheck(){
-    if(!menuStatus){
-        menuStatus = true
+function menuCheck() {
+    if (!menuStatus) {
         side.classList += ' side-menu-open'
-        shadow()
-    }else{
-        menuStatus = false
+        side.style.transform = 'translateX(0%)'
+        shadowMenu.style.opacity = '1'
+        shadowMenu.style.zIndex = '1'
+    }else {
+        side.style.transform = 'translateX(-101%)'
+        shadowMenu.style.opacity = '0'
+        shadowMenu.style.zIndex = '-1'
         side.className = 'side-menu'
-        shadow()
     }
+    menuStatus = !menuStatus
 }
-
-function shadow(){
-    if(menuStatus){
-        shadowMenu.style.left = '70vw'
-    }else{
-        shadowMenu.style.left = '-30vw'
-    }
-}
-
-function shadowColor(){
-    if(menuStatus){      
-        shadowMenu.style.background = 'rgba(30, 30, 30, 0.4)'
-    }else{
-        shadowMenu.style.background = 'rgba(30, 30, 30, 0)'
-    }
-}
-

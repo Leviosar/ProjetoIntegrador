@@ -5,7 +5,6 @@ var $ = function (select) {
 c_user = new Usuario()
 
 let fileName= location.href.split("/").slice(-1)
-console.log(fileName[0])
 switch(fileName[0]){
     case "login.html":
 
@@ -13,6 +12,10 @@ switch(fileName[0]){
     
     case "cadastro.html":
     
+    break;
+
+    case "profile.html":
+        c_user.getInfo(callback)
     break;
 
     default:

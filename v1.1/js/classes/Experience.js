@@ -49,7 +49,7 @@ class Experience{
                     }
                     this.request('rateXp', keys,
                     ()=>{
-                        c_user.addCoin(100, ()=>{window.location = '../../xplist.html'})
+                        c_user.addView(100, this.id, ()=>{window.location = '../../xplist.html'})
                     })
                 }
             )

@@ -1,4 +1,5 @@
 let badgeContainer = document.querySelector("div.badge-container")
+let moneyContainer = document.querySelector('div.saldo-container')
 let callback = ()=>{    
     let badgeList = c_user.getBadges(
         (badgeList)=>{
@@ -18,6 +19,15 @@ let callback = ()=>{
                     })
                 })    
             }
+        }
+    )
+
+    let saldo = c_user.getMoney(
+        async (data)=>{
+            data = await JSON.parse(data)
+            let p = document.createElement('p')
+            p.innerText = data.saldo
+            moneyContainer.appendChild(p)
         }
     )
 }

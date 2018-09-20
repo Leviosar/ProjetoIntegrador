@@ -64,13 +64,25 @@ class User{
 	}
 
 	function manageWallet($KEYS, $token){
-		print_r($KEYS);
 		if ($this->auth($token, $KEYS['idusuario'])) {
 			try{
 				$query = $this->connection->prepare('INSERT INTO transacao (idusuario, valor) VALUES (?, ?)');
 				$query->bindParam(1, $KEYS['idusuario']);
 				$query->bindParam(2, $KEYS['value']);
 				$query->execute();
+			}catch(Exception $e){
+				die('Erro'. $e->getMessage());
+			}
+		}
+	}
+
+	function getMoney($KEYS, $token){
+		if ($this->auth($token, $KEYS['idusuario'])) {
+			try{
+				$query = $this->connection->prepare('SELECT sum(valor) as saldo FROM transacao where idusuario = ?');
+				$query->bindParam(1, $KEYS['idusuario']);
+				$query->execute();
+				die(json_encode($query->fetch(PDO::FETCH_ASSOC)));
 			}catch(Exception $e){
 				die('Erro'. $e->getMessage());
 			}
@@ -97,23 +109,106 @@ class User{
 	function insertBadges($KEYS, $token){
 		if($this->auth($token, $KEYS['idusuario'])){
 			try{
-				$query = $this->connection->prepare("INSERT INTO usuario_badge (idbadge, idusuario) VALUES (?, ?)");
+
+				$query = $this->connection->prepare("SELECT * FROM usuario_badge WHERE idbadge = ? AND idusuario = ?");
 				$query->bindParam(1, $KEYS['idbadge']);
 				$query->bindParam(2, $KEYS['idusuario']);
 				$query->execute();
 
 				if ($query->rowCount() > 0) {
-					die(json_encode(['error' => 'Sucesso']));
+					return 0;
 				}else{
-					http_response_code(403);
-					die(json_encode(['error' => 'Não autorizado', 'msg' => 'Você será redirecionado']));
+					$query = $this->connection->prepare("INSERT INTO usuario_badge (idbadge, idusuario) VALUES (?, ?)");
+					$query->bindParam(1, $KEYS['idbadge']);
+					$query->bindParam(2, $KEYS['idusuario']);
+					$query->execute();
 				}
+
 			}catch(Exception $e){
 				die("Erro ao buscar as insígnias: " . $e->getMessage());
 			}
 		}else{
 			http_response_code(409);
 			die(json_encode(['error' => 'Falha de autenticação', 'msg' => 'Você será redirecionado']));
+		}
+	}
+
+	function addView($KEYS, $token){
+		if ($this->auth($token, $KEYS['idusuario'])) {
+			try{
+				$query = $this->connection->prepare("SELECT * FROM usuario_experiencia WHERE idusuario = ? AND idexperiencia = ?");
+				$query->bindParam(1, $KEYS['idusuario']);
+				$query->bindParam(2, $KEYS['idexperiencia']);
+				$query->execute();
+
+				if ($query->rowCount() > 0) {
+					die(json_encode(['error' => 'Sucesso']));
+				}else{
+					$query = $this->connection->prepare('INSERT INTO usuario_experiencia (idusuario, idexperiencia) VALUES (?,?)');
+					$query->bindParam(1, $KEYS['idusuario']);
+					$query->bindParam(2, $KEYS['idexperiencia']);
+					$query->execute();
+					$this->manageWallet($KEYS, $token);					
+					$this->manageBadges($KEYS, $token);					
+				}
+			}catch(Exception $e){
+				http_response_code(400);
+				die(json_encode(['error' => '400', 'msg' => $e->getMessage()]));	
+			}
+		}
+	}
+
+	function manageBadges($KEYS, $token){
+		if ($this->auth($token, $KEYS['idusuario'])) {
+			try{
+
+				$query = $this->connection->prepare("SELECT * FROM usuario_experiencia WHERE idusuario = ?");
+				$query->bindParam(1, $KEYS['idusuario']);
+				$query->execute();
+				$query = $query->fetchAll(PDO::FETCH_ASSOC);
+
+				$i = 0;
+				$idbadge = 0;
+
+				$values = ["idusuario" => $KEYS['idusuario'], "idbadge"=> 14];
+				$this->insertBadges($values, $token);
+
+				if (count($query) == 5) {
+					$values = ["idusuario" => $KEYS['idusuario'], "idbadge"=> 1];
+					$this->insertBadges($values, $token);
+				}
+
+				while($i < count($query)){
+					
+					switch ($query[$i]['idexperiencia']) {
+						case 1:
+							$idbadge = 7;
+							break;
+						case 2:
+							$idbadge = 4;
+							break;
+						case 3:
+							$idbadge = 8;
+							break;
+						case 4:
+							$idbadge = 7;
+							break;
+						case 5:
+							$idbadge = 6;
+							break;
+					}
+
+					$values = ["idusuario" => $KEYS['idusuario'], "idbadge"=>$idbadge];
+					$this->insertBadges($values, $token);
+
+					$i++;
+				}
+
+
+			}catch(Exception $e){
+				http_response_code(400);
+				die(json_encode(['error' => '400', 'msg' => $e->getMessage()]));	
+			}
 		}
 	}
 	
