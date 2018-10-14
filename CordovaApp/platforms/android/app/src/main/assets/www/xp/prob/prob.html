@@ -1,0 +1,173 @@
+<html>
+<head>
+	<title>Blackjack</title>
+	<meta charset="utf-8">
+	
+	<!-- Tag meta/viewport para otimização em mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<!-- Estilos próprios deste projeto -->
+	<link rel="stylesheet" type="text/css" href="../../css/input.css">
+	<link rel="stylesheet" type="text/css" href="../../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../../css/img.css">
+	<link rel="stylesheet" type="text/css" href="../master/master.css">
+
+	<!-- Estilo customizado para esta experiência -->
+	<link rel="stylesheet" type="text/css" href="prob.css">
+	
+	<!-- Fontes -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+	<!-- p5.js CDN Externo -->
+	<script type="text/javascript" src="../../vendor/p5js/p5.min.js"></script>
+
+</head>
+<body>
+	<main>
+		<header>
+			<h2>Contando Cartas</h2>
+			<p><span>Matemática</span></p>
+			<ul class="dotBar"><!-- Quantidade de circulos iguais a de textos da experiência --></ul>
+		</header>
+
+		<section class="content-container">
+
+						
+			<!-- #0 -->
+			<div class="content window">
+				<p>Qual a probabilidade de você estar lendo isso em uma sexta-feira? E qual a de você estar lendo isso em um helicoptero no Vietnã? No primeiro caso tudo depende de dados conhecidas, enquanto no segundo as variáveis são múltiplas e desconhecidas.</p>				
+			</div>
+			
+			<!-- #2 -->
+			<div class="content window">
+				<p>Mas como podemos extrair e entender os dados de um cenário para poder calculá-lo? Para isso vamos imaginar um cenário de um jogo de <i>Blackjack</i> ou <i>Vinte e Um</i>. As regras são simples, um jogador retira cartas de um baralho até que a soma dos valores delas seja 21.</p>
+			</div>
+
+			<!-- #3 -->
+			<div class="content window">
+				<p>Caso o valor ultrapasse 21, o jogador perde. Nesse cenário inicial não iremos tratar da possibilidade do jogador parar de puxar cartas, ou seja, o jogador pega cartas até chegar ou ultrapassar o valor desejado.</p>
+			</div>
+
+			<!-- #4 -->
+			<div id="first-img" class="content window">
+				<div>
+					<div>
+						<span>13</span>
+						<div><img src="src/diamonds.png" alt=""></div>
+					</div>
+					<div>
+						<span>13</span>
+						<div><img src="src/spades.png" alt=""></div>
+					</div>
+					<div>
+						<span>13</span>
+						<div><img src="src/clubs.png" alt=""></div>
+					</div>
+					<div>
+						<span>13</span>
+						<div><img src="src/hearts.png" alt=""></div>
+					</div>
+				</div>
+				<p>Nosso <span class="text-orange">espaço amostral (S)</span> é o baralho com 52 cartas, sendo elas 4 naipes de 13 cartas cada. Vamos calcular as possibilidades de se ganhar sempre na próxima compra de cartas.</p>
+			</div>
+
+			<!-- #4 -->
+			<div id="first-img" class="content window">
+				<div>
+					<div>
+						<span>10</span>
+						<div><img src="src/diamonds.png" alt=""></div>
+					</div>
+				</div>
+				<p>Vamos criar um jogo onde puxamos uma carta de valor 10, para ganhar precisamos tirar 11 na próxima puxada e restam 51 cartas no baralho. Dessas 51 (que agora é nosso S), quatro delas possuem o valor 11.</p>
+			</div>
+
+			<!-- #5 -->
+			<div id="first-img" class="content window">
+				<div>
+					<div>
+						<span>10</span>
+						<div><img src="src/diamonds.png" alt=""></div>
+					</div>
+					<div>
+						<span>11</span>
+						<div><img src="src/spades.png" alt=""></div>
+					</div>
+				</div>
+				<p>Sendo assim, temos 4 chances em 51 de retirar a carta correta. Fazendo a divisão e multiplicando por 100 para obter o porcentagem vamos chegar a uma condição de vitória <span class="text-orange">(CV)</span> de 7,85%.	</p>
+			</div>
+
+			<!-- #5 -->
+			<div id="first-img" class="content window">
+				<div>
+					<div>
+						<span>10</span>
+						<div><img src="src/diamonds.png" alt=""></div>
+					</div>
+					<div>
+						<span>10</span>
+						<div><img src="src/spades.png" alt=""></div>
+					</div>
+				</div>
+				<p>Mas vamos voltar no tempo e dizer que tiramos outro 10, nos restando agora 50 cartas no baralho e com a condição de apenas mais um ponto para alcançarmos a vitória, com o mesmo raciocínio chegamos agora a uma CV = 8%.</p>
+			</div>
+
+			<!-- #5 -->
+			<div id="first-img" class="content window">
+				<div>
+					<div>
+						<span>10</span>
+						<div><img src="src/diamonds.png" alt=""></div>
+					</div>
+					<div>
+						<span>10</span>
+						<div><img src="src/spades.png" alt=""></div>
+					</div>
+					<div>
+						<span>1</span>
+						<div><img src="src/hearts.png" alt=""></div>
+					</div>
+				</div>
+				<p>Mesmo com as chances contra, você se saiu vencedor dessa vez, mas não conte com a sorte sempre. Conhecer um pouquinho de probabilidades pode te ajudar nessas horas, continue jogando a seguir!</p>
+			</div>
+	
+			<!-- #1 -->
+			<div id="blackjack" class="content window">
+				<div>
+					<div>
+						<span>Total: 0</span>
+						<span>CV: 0%</span>
+					</div>
+					<div>
+						<span>+1 Carta</span>
+						<span>Embaralhar</span>
+					</div>
+				</div>
+				<div class="hand"></div>
+			</div>
+
+			<!-- #9 -->
+			<div class="content window">
+				<p>O estudo de probabilidades pode ser aplicado em diversos casos que você vai encontrar no cotidiano, basta um pouco de paciência para determinar as variáveis e pronto, você já pode se considerar um mestre do destino.</p>
+				<button class="button">Fim da experiência</button>
+			</div>
+		</section>
+	</main>
+
+	<!-- Frameworks -->
+
+	<!-- Font-Awesome - CDN externo -->
+	<script defer src="../../vendor/fontawesome/solid.js"></script>
+	<script defer src="../../vendor/fontawesome/fontawesome.js"></script>
+	<script defer src="../../vendor/sweetalert/sweetalert.js"></script>
+	<script type="text/javascript" src="../../js/classes/Scroller.js"></script>
+	<script type="text/javascript" src="../../js/classes/Usuario.js"></script>
+	<script type="text/javascript" src="../../js/classes/Rating.js"></script>
+	<script type="text/javascript" src="../../js/classes/Experience.js"></script>
+	<script defer type="text/javascript" src="js/Blackjack.js"></script>
+	<script defer type="text/javascript" src="js/prob.js"></script>
+	<script defer type="text/javascript" src="js/canvas1.js"></script>
+
+</body>
+</html>

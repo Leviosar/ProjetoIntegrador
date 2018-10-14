@@ -1,0 +1,108 @@
+<html>
+<head>
+	<title>Números não tão complexos</title>
+	<meta charset="utf-8">
+	
+	<!-- Tag meta/viewport para otimização em mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<!-- Estilos próprios deste projeto -->
+	<link rel="stylesheet" type="text/css" href="../../css/input.css">
+	<link rel="stylesheet" type="text/css" href="../../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../../css/img.css">
+	<link rel="stylesheet" type="text/css" href="../master/master.css">
+
+	<!-- Estilo customizado para esta experiência -->
+	<link rel="stylesheet" type="text/css" href="atom.css">
+	
+	<!-- Fontes -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+	<!-- p5.js CDN Externo -->
+	<script type="text/javascript" src="../../vendor/p5js/p5.min.js"></script>
+
+</head>
+<body>
+	<main>
+		<header>
+			<h2>O átomo</h2>
+			<p><span>Quimica</span></p>
+			<ul class="dotBar"><!-- Quantidade de circulos iguais a de textos da experiência --></ul>
+		</header>
+
+		<section class="content-container">
+			
+			<!-- #0 -->
+			<div class="content window">
+				<p>
+                    Do que são feitas as coisas? De matéria. Mas do que é feita a matéria? De <span class="text-red">átomos</span>. E o que são átomos? Bom, a concepção do átomo é bem antiga, e como a maior parte da ciência antiga está erroneamente conceituada.
+				</p>
+			</div>
+			
+			<!-- #1 -->
+			<div class="content window">
+				<p>O conceito é que um átomo seria a menor parte indivisível da matéria, isso vem de um grego chamado Demócrito. Hoje já sabemos que o átomo não é indivisível, muito menos a menor parte da matéria, mas ele continua sendo uma parte muito importante do nosso conhecimento.</p>				
+			</div>
+
+			<!-- #2 -->
+			<div class="content window">
+				<p>Com a ciência moderna, conseguimos criar alguns modelos de átomos para tentar explicá-los, o primeiro deles foi criado por John Dalton e foi carinhosamente apelidado de "bola de bilhar", vocês já vão ver o porque disso.</p>
+			</div>
+
+			<!-- #3 -->
+			<div  id="canvas-1" class="content window">
+                
+            </div>
+
+			<!-- #4 -->
+			<div class="content window">
+				<p>Neste processo participam duas enzimas principais, a primeira delas é chamada <span class="text-green">DNA Helicase</span> e ela tem como função quebrar as ligações de hidrogênio que prendem as duas fitas.</p>
+			</div>
+
+			<!-- #5 -->
+			<div class="content window">
+				<p>Com as ligações quebradas, as bases nitrogenadas da fita ficam livres para fazerem novas ligações com bases que estão soltas no material genético da célula, quem ajuda nessa etapa é a enzima <span class="text-green">DNA Polimerase</span></p>
+			</div>
+
+			<!-- #6 -->
+			<div class="content window">
+				<p>Ela vai emparelhando as bases soltas com bases adequadas, formando uma nova fita. No jogo a seguir você deve emparelhar as bases corretas segundo as cores: <span class="text-green">Citosina</span> + <span class="text-orange"> Guanina </span> e <span class="text-blue">Timina</span> + <span class="text-purple">Adenina</span>. Não se esqueça das ligações mostradas antes!</p>
+			</div>
+
+			<!-- #7 -->
+			<div id="canvas-4" class="content window">
+				<div>
+					<button><i class="fas fa-chevron-left"></i></button>
+					<button><i class="fas fa-chevron-right"></i></button>
+				</div>
+			</div>
+
+			<!-- #8 -->
+			<div id="canvas-5" class="content window">
+				<p>Esse mesmo processo acontece nas duas fitas separadas pela <span class="text-green">DNA Helicase</span> e no final de tudo, são formadas 2 moléculas de DNA exatamente idênticas a que deu origem a elas.</p>
+			</div>
+
+			<!-- #9 -->
+			<div class="content window">
+				<p>A duplicação do DNA é apenas um dos processos que ocorrem com essa molécula, ainda existem outros como a tradução e a transcrição, mas isso já é assunto para uma próxima aula, tchauzinho.</p>
+				<button class="button">Fim da experiência</button>
+			</div>
+		</section>
+	</main>
+
+	<!-- Frameworks -->
+
+	<!-- Font-Awesome - CDN externo -->
+	<script defer src="../../vendor/fontawesome/solid.js"></script>
+	<script defer src="../../vendor/fontawesome/fontawesome.js"></script>
+	<script defer src="../../vendor/sweetalert/sweetalert.js"></script>
+	<script type="text/javascript" src="../../js/classes/Scroller.js"></script>
+	<script type="text/javascript" src="../../js/classes/Usuario.js"></script>
+	<script type="text/javascript" src="../../js/classes/Rating.js"></script>
+	<script type="text/javascript" src="../../js/classes/Experience.js"></script>
+	<script defer type="text/javascript" src="js/canvas1.js"></script>
+	<script type="text/javascript" src="js/atom.js"></script>
+
+</body>
+</html>

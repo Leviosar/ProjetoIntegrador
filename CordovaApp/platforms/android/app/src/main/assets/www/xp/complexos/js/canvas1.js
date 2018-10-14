@@ -1,5 +1,6 @@
 let container = document.querySelector("div#canvas-1")
 let width, height
+
 let skecth1 = (p)=>{
     width = container.offsetWidth * 0.8, height = container.offsetHeight * 0.4
     p.setup = ()=>{
@@ -46,3 +47,5 @@ let skecth1 = (p)=>{
         p.ellipse(x, y, height/16)
     }
 }
+
+canvas1 = new p5(skecth1, 'canvas-1')

@@ -29,6 +29,13 @@ try{
 		case 'getMoney': die($usuario->getMoney($KEYS, $HEADER['token']));
 		case 'rateXp': die($xp->rate($KEYS));
 		case 'addView': die($usuario->addView($KEYS, $HEADER['token']));
+		case 'getAvatar': die($usuario->getAvatar($KEYS, $HEADER['token']));
+		case 'setAvatar': die($usuario->setAvatar($KEYS, $HEADER['token']));
+		case 'getGames': die($usuario->getGames($KEYS, $HEADER['token']));
+		case 'getRanking': die($usuario->getRanking($KEYS));
+		case 'buyGame': die($usuario->buyGame($KEYS, $HEADER['token']));
+		case 'getAllGames': die($usuario->getAllGames());
+		case 'insertScore': die($usuario->insertScore($KEYS, $HEADER['token']));
 		default: throw new Exception("Erro - Metodo não encontrado", 404);
 	}	
 } catch (Exception $e) {

@@ -10,9 +10,9 @@ class Usuario{
         this.request('getInfo', null,
         async (response)=>{
             response = await JSON.parse(response)
-            this.idUsuario = response.idusuario;
-            this.nomeUsuario = response.nome;
-            this.emailUsuario = response.email;
+            this.idUsuario = response.idusuario
+            this.nomeUsuario = response.nome
+            this.emailUsuario = response.email
             callback()
         },
         async (errorCode)=>{
@@ -24,7 +24,7 @@ class Usuario{
             }).then(
                 ()=>{
                     sessionStorage.clear()
-                    location.href = 'index.html'
+                    location.href = location.origin + location.pathname.substring(0, location.pathname.indexOf('www')) + 'www/index.html'
                 }
             )
         })
@@ -75,6 +75,63 @@ class Usuario{
         )
     }
 
+    async getAvatar(callback){
+        let keys = {
+            idusuario: this.idUsuario
+        }
+
+        this.request('getAvatar', keys, callback)
+    }
+
+    async getRanking(id, callback){
+        let keys = {
+            idgame: id,
+            idusuario: this.idUsuario
+        }
+
+        this.request('getRanking', keys, callback)
+    }
+
+    async getGames(callback){
+        let keys = {
+            idusuario : this.idUsuario
+        }
+        this.request('getGames', keys, callback, ()=>{return false})
+    }
+
+    async getAllGames(callback){
+        let keys = {}
+        this.request('getAllGames', keys, callback, ()=>{return false})
+    }
+
+    async buyGame(id, callback){
+        let keys = {
+            idgame : id,
+            idusuario : this.idUsuario
+        }
+
+        this.request('buyGame', keys, callback)
+    }
+
+    async addScore(idgame, score){
+        let keys = {
+            idgame: idgame,
+            value: score,
+            idusuario: this.idUsuario
+        }
+
+        this.request('insertScore', keys)
+    }
+
+    async setAvatar(avatarValue, callback = ()=>{return true}){
+        let keys = {
+            idusuario: this.idUsuario,
+            avatar: avatarValue
+        }
+
+        this.request('setAvatar', keys, callback)
+    }
+
     async insertBadge(id){
         let keys = {
             idusuario: this.idUsuario,
@@ -96,6 +153,13 @@ class Usuario{
             email: email,
             senha: senha,
         }
+
+        let loading = document.createElement('img')
+        loading.src = 'img/loading5.gif'
+        swal({
+            title: 'Fazendo requisições super pesadas',
+            content: loading
+        })
 
         this.request('signUp', keys, 
             ()=>{
@@ -123,6 +187,12 @@ class Usuario{
             email : email,
             senha : senha
         }
+
+        let loading = document.createElement('img')
+        loading.src = 'img/loading3.gif'
+        swal({
+            content: loading
+        })
 
         this.request('loginUser', keys, 
             async (response)=>{

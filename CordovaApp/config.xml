@@ -19,10 +19,13 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <icon src="res/icon/android/icon.png" />
+        <preference name="Fullscreen" value="false" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
+    <plugin name="cordova-plugin-vibration" spec="^3.1.0" />
     <engine name="android" spec="^7.0.0" />
 </widget>

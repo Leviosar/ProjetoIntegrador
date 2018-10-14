@@ -1,0 +1,1 @@
+const xp = new Experience(7, 10, '#ff8585')

@@ -18,6 +18,7 @@ body {
 	background: radial-gradient(#3a9ad4 , #3390c9);
 	max-width: 100vw;
 }
+
 *{
 	user-select: none;
 }
@@ -320,7 +321,7 @@ div#text-header {
     background-color: #3390c9;
     height: 100vh;
     width: 70vw;
-    position: absolute;
+    position: fixed;
     top: 0;
     transition: ease-in-out 0.5s;
     color: white;
@@ -388,7 +389,7 @@ div.limits {
 div.shadow-menu {
 	width: 100vw;
 	height: 100vh;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	transition: .3s ease;
 	z-index: -2;
@@ -435,6 +436,9 @@ div.shadow-menu {
 .bg-green{
 	background: #d2e459;
 }
+.bg-red{
+	background: #ff8585;
+}
 .bg-orange {
 	background: #f4c242;
 }
@@ -455,6 +459,9 @@ div.shadow-menu {
 }
 .text-blue{
 	color: #185e82;
+}
+.text-red{
+	color: #ff8585;
 }
 
 .xp-header{
@@ -529,4 +536,57 @@ a:focus{
 	width: 30vw;
 	font-family: Kollektif;
 	font-size: 5vw;
+}
+
+div.height-30 > h1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 3em;	
+}
+
+@media (min-aspect-ratio: 1/1){
+	
+	div.height-30{
+		height: 10vh;
+		margin-top: 5vh;
+	}
+
+	div.formu input.button, div.formu button.button, form input.button, form button.button{
+		height: 8vw;
+	}
+
+	header{
+		height: 10vw;
+	}
+
+	.xp-item{
+		padding: 0;
+		padding-left: 2vw;
+		justify-content: center;
+	}
+
+	.xp-label{
+		height: 60%;
+		width: 10vw;
+		margin-right: 2vw;
+	}
+	
+	.xp-header{
+		height: 60%;
+		display: flex;
+		align-items: center;
+	}
+
+	.xp-description > small{
+		margin-bottom: 2vw;
+	}
+
+	.side-menu{
+		width: 30vw;
+	}
+
+	.menu-logo{
+		display: none;
+	}
 }

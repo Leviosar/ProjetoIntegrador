@@ -1,0 +1,223 @@
+div.display{
+  width: 80vw; 
+}
+
+*{
+  box-sizing: border-box;
+}
+
+div.display p {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3em;
+}
+
+span.formula-complex{
+  height: 20vw;
+  width: 80%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  border-radius: 4vw;
+}
+
+div#canvas-4 > div{
+  position: absolute;
+  top: 20vh;
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div#canvas-4 > div > button {
+  height: 100%;
+  width: 25%;
+  background: transparent;
+  color: #d2e459;
+  border: 2px solid #d2e459;
+  font-size: 2em;
+}
+
+div#canvas-4 > div > button:focus{
+  outline: none;
+  animation: blink .5s 1;
+}
+
+div#blackjack{
+  height: 60vh;
+  width: 100vw;
+}
+
+div#blackjack > div:first-child {
+  height: 40%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+div#blackjack > div:first-child > div:last-child{
+  height: 80%;
+  width: 55%;
+  background: transparent;
+  border-radius: 10px;
+  /* border: 2px solid #f4c242; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Kollektif;
+  color: white;
+  font-size: 1.5em;
+}
+
+div#blackjack > div:first-child > div:last-child > span{
+  height: 45%;
+  width: 100%;
+  border: 2px solid #f4c242;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div#blackjack > div:first-child > div:first-child{
+  height: 80%;
+  width: 55%;
+  background: transparent;
+  margin-right: 5%;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  color: white;
+  font-family: Kollektif;
+  padding-left: 5%;
+}
+
+div#blackjack > div:first-child > div:first-child {
+  font-size: 1.5em;
+}
+
+div#blackjack > div:last-child {
+  height: 60%;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 3%;
+  box-sizing: border-box;
+}
+
+div#blackjack > div:last-child > div{
+  background: white;
+  color: #f4c242;
+  width: 30%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+  font-size: 1.5em;
+  margin-bottom: 2vw;
+  font-family: Kollektif;
+  transition: .2s ease;
+}
+
+div#blackjack > div:last-child > div:hover{
+  border: 2px solid #f4c242;
+}
+
+div#blackjack > div:last-child > div > div{
+  height: 30%;
+  width: 100%;
+  padding-left: 5vw;
+}
+
+div#blackjack > div:last-child > div > img{
+  height: auto;
+  width: 50%;
+}
+
+div#first-img > div{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+div#first-img > div > div {
+  height: 80%;
+  width: 20%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  flex-direction: column;
+  font-family: Kollektif;
+  font-size: 1.4em;
+  transition: .2s ease;
+}
+
+div#first-img > div > div:hover{
+  border: 2px solid #f4c242;
+}
+
+div#first-img > div > div > span {
+  height: 20%;
+  width: 100%;
+  padding-top: 15%;
+  padding-left: 15%;
+}
+
+div#first-img > div > div > div {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div#first-img > div > div > div > img {
+  width: 60%;
+  height: auto;
+}
+
+.blink_button{
+  animation: blink_button .25s;
+}
+
+@keyframes blink{
+  0% {background: transparent}
+  50% {background: rgba(210, 228, 89, 0.5)}
+  100% {background: transparent}
+}
+
+
+@keyframes blink_button{
+  0% {
+    background: transparent;
+    color: #f4c242;
+  }
+  50% {
+    background: #f4c242;
+    color: white;
+    border: 2px solid white;
+  }
+  100% {
+    background: transparent;
+    color: #f4c242;
+  }
+}

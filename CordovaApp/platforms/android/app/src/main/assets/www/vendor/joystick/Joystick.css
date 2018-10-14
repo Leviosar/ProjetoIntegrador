@@ -1,0 +1,20 @@
+.joystick{
+    display: none;
+    height: 20vh;
+    width: 20vh;
+    border: 4px solid rgba(0,0,0,.25);
+    position: absolute;
+    border-radius: 100%;
+    z-index: 2;
+}
+
+.stick{
+    display: none;
+    height: 8vh;
+    width: 8vh;
+    background: rgba(0,0,0,.25);
+    border: none;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 2;
+}

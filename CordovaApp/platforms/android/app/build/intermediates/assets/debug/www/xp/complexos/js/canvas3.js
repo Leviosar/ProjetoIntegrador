@@ -141,3 +141,5 @@ let skecth3 = (p)=>{
     //     p.ellipse(p.mouseX, p.mouseY, 15)
     // }
 }
+
+canvas3 = new p5(skecth3, 'canvas-3')

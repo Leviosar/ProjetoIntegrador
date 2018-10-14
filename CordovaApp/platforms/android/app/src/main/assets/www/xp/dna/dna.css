@@ -1,0 +1,52 @@
+div.display{
+  width: 80vw; 
+}
+
+div.display p {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3em;
+}
+
+span.formula-complex{
+  height: 20vw;
+  width: 80%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  border-radius: 4vw;
+}
+
+div#canvas-4 > div{
+  position: absolute;
+  top: 20vh;
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+div#canvas-4 > div > button {
+  height: 100%;
+  width: 25%;
+  background: transparent;
+  color: #d2e459;
+  border: 2px solid #d2e459;
+  font-size: 2em;
+}
+
+div#canvas-4 > div > button:focus{
+  outline: none;
+  animation: blink .5s 1;
+}
+
+@keyframes blink{
+  0% {background: transparent}
+  50% {background: rgba(210, 228, 89, 0.5)}
+  100% {background: transparent}
+}

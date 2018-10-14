@@ -1,5 +1,8 @@
 div.display{
-  width: 80vw; 
+  width: 80vw;
+  height: 10vh;
+  display: flex;
+  align-items: center; 
 }
 
 div.display p {

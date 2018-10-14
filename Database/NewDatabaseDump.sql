@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS `oob_bd`.`usuario` (
     `nome` VARCHAR(120) NOT NULL,
     `email` VARCHAR(120) NOT NULL,
     `senha` VARCHAR(64) NOT NULL,
+    `avatar` INT NOT NULL DEFAULT 12
     PRIMARY KEY (`idusuario`)
 )
 ENGINE = InnoDB;
@@ -69,23 +70,6 @@ CREATE TABLE IF NOT EXISTS `oob_bd`.`tokens` (
 )
 ENGINE = InnoDB;
 
-
-CREATE TABLE IF NOT EXISTS `oob_bd`.`avatar` (
-    `idtable1` INT NOT NULL AUTO_INCREMENT,
-    `custo` INT NULL,
-    PRIMARY KEY (`idtable1`)
-)
-ENGINE = InnoDB;
-
-CREATE TABLE IF NOT EXISTS `oob_bd`.`usuario_avatar` (
-    `idusuario` INT NOT NULL,
-    `idtable1` INT NOT NULL,
-    `atual` BOOLEAN NOT NULL,
-    FOREIGN KEY (`idusuario`) REFERENCES `oob_bd`.`usuario` (`idusuario`),
-    FOREIGN KEY (`idtable1`)REFERENCES `oob_bd`.`avatar` (`idtable1`)
-)
-ENGINE = InnoDB;
-
 CREATE TABLE IF NOT EXISTS `oob_bd`.`transacao` (
     `idusuario` INT NOT NULL,
     `valor` INT NOT NULL,
@@ -103,3 +87,30 @@ CREATE TABLE IF NOT EXISTS `oob_bd`.`rate` (
     FOREIGN KEY (`idexperiencia`) REFERENCES `oob_bd`.`experiencia` (`idexperiencia`)
 )
 ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `oob_bd`.`game` (
+    `idgame` INT NOT NULL AUTO_INCREMENT,
+    `nome` VARCHAR (200) NOT NULL,
+    `valor` INT NOT NULL,
+    PRIMARY KEY (`idgame`)
+)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `oob_bd`.`usuario_game` (
+    `idgame` INT NOT NULL,
+    `idusuario` INT NOT NULL,
+    FOREIGN KEY (`idusuario`) REFERENCES `oob_bd`.`usuario` (`idusuario`), 
+    FOREIGN KEY (`idgame`) REFERENCES `oob_bd`.`game` (`idgame`)
+)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `oob_bd`.`score` (
+    `idgame` INT NOT NULL,
+    `idusuario` INT NOT NULL,
+    `pontuacao` INT NOT NULL,
+    `horario` TIMESTAMP NOT NULL,
+    FOREIGN KEY (`idusuario`) REFERENCES `oob_bd`.`usuario` (`idusuario`), 
+    FOREIGN KEY (`idgame`) REFERENCES `oob_bd`.`game` (`idgame`)
+)
+ENGINE = InnoDB;
+

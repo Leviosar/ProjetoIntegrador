@@ -1,0 +1,113 @@
+<html>
+<head>
+	<title>Números não tão complexos</title>
+	<meta charset="utf-8">
+	
+	<!-- Tag meta/viewport para otimização em mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<!-- Estilos próprios deste projeto -->
+	<link rel="stylesheet" type="text/css" href="../../css/input.css">
+	<link rel="stylesheet" type="text/css" href="../../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../../css/img.css">
+	<link rel="stylesheet" type="text/css" href="../master/master.css">
+
+	<!-- Estilo customizado para esta experiência -->
+	<link rel="stylesheet" type="text/css" href="dna.css">
+	
+	<!-- Fontes -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+	<!-- p5.js CDN Externo -->
+	<script type="text/javascript" src="../../vendor/p5js/p5.min.js"></script>
+
+</head>
+<body>
+	<main>
+		<header>
+			<h2>Duplicação do DNA</h2>
+			<p><span>Biologia</span></p>
+			<ul class="dotBar"><!-- Quantidade de circulos iguais a de textos da experiência --></ul>
+		</header>
+
+		<section class="content-container">
+			
+			<!-- #0 -->
+			<div id="canvas-1" class="content window">
+				<p>
+					O <span class="text-green">DNA</span>  é um composto orgânico presente em todos os seres vivos, imprescindivel para o funcionamento dos organismos e possui uma estrutura semelhante a mostrada abaixo.
+				</p>
+			</div>
+			
+			<!-- #1 -->
+			<div class="content window">
+				<p>Mas o que são as "bolinhas" no DNA? São compostos cíclicos chamados de bases nitrogenadas, com características diferentes e que tem a capacidade de formar pares com outras, no DNA temos 4 bases, sendo essas <span class="text-green">Citosina</span> , <span class="text-orange"> Guanina </span>, <span class="text-blue">Timina</span>  e <span class="text-purple">Adenina</span>. </p>				
+			</div>
+
+			<!-- #2 -->
+			<div id="canvas-3"  class="content window">
+				<p>Esses pares formados por elas seguem sempre um padrão, ditado pelas ligações feitas entre as bases como visto abaixo.</p>
+			</div>
+
+			<!-- #3 -->
+			<div  id="canvas-2" class="content window">
+				<p>Existem diversos processos envolvendo esse composto, um deles é a duplicação. Essa é a maneira pela qual o composto consegue se replicar para que ocorra o processo de divisão celular.</p>
+			</div>
+
+			<!-- #4 -->
+			<div class="content window">
+				<p>Neste processo participam duas enzimas principais, a primeira delas é chamada <span class="text-green">DNA Helicase</span> e ela tem como função quebrar as ligações de hidrogênio que prendem as duas fitas.</p>
+			</div>
+
+			<!-- #5 -->
+			<div class="content window">
+				<p>Com as ligações quebradas, as bases nitrogenadas da fita ficam livres para fazerem novas ligações com bases que estão soltas no material genético da célula, quem ajuda nessa etapa é a enzima <span class="text-green">DNA Polimerase</span></p>
+			</div>
+
+			<!-- #6 -->
+			<div class="content window">
+				<p>Ela vai emparelhando as bases soltas com bases adequadas, formando uma nova fita. No jogo a seguir você deve emparelhar as bases corretas segundo as cores: <span class="text-green">Citosina</span> + <span class="text-orange"> Guanina </span> e <span class="text-blue">Timina</span> + <span class="text-purple">Adenina</span>. Não se esqueça das ligações mostradas antes!</p>
+			</div>
+
+			<!-- #7 -->
+			<div id="canvas-4" class="content window">
+				<div>
+					<button><i class="fas fa-chevron-left"></i></button>
+					<button><i class="fas fa-chevron-right"></i></button>
+				</div>
+			</div>
+
+			<!-- #8 -->
+			<div id="canvas-5" class="content window">
+				<p>Esse mesmo processo acontece nas duas fitas separadas pela <span class="text-green">DNA Helicase</span> e no final de tudo, são formadas 2 moléculas de DNA exatamente idênticas a que deu origem a elas.</p>
+			</div>
+
+			<!-- #9 -->
+			<div class="content window">
+				<p>A duplicação do DNA é apenas um dos processos que ocorrem com essa molécula, ainda existem outros como a tradução e a transcrição, mas isso já é assunto para uma próxima aula, tchauzinho.</p>
+				<button class="button">Fim da experiência</button>
+			</div>
+		</section>
+	</main>
+
+	<!-- Frameworks -->
+
+	<!-- Font-Awesome - CDN externo -->
+	<script defer src="../../vendor/fontawesome/solid.js"></script>
+	<script defer src="../../vendor/fontawesome/fontawesome.js"></script>
+	<script defer src="../../vendor/sweetalert/sweetalert.js"></script>
+	<script type="text/javascript" src="../../js/classes/Scroller.js"></script>
+	<script type="text/javascript" src="../../js/classes/Usuario.js"></script>
+	<script type="text/javascript" src="../../js/classes/Rating.js"></script>
+	<script type="text/javascript" src="../../js/classes/Experience.js"></script>
+	<script defer type="text/javascript" src="js/canvas1.js"></script>
+	<script type="text/javascript" src="js/dna.js"></script>
+	<script defer type="text/javascript" src="js/Fitinha.js"></script>
+	<script defer type="text/javascript" src="js/canvas2.js"></script>
+	<script defer type="text/javascript" src="js/canvas3.js"></script>
+	<script defer type="text/javascript" src="js/canvas4.js"></script>
+	<script defer type="text/javascript" src="js/canvas5.js"></script>
+
+</body>
+</html>
