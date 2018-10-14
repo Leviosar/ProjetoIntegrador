@@ -221,17 +221,17 @@ main > section > div.hud > div.buttons > button{
     background:  rgba(0,0,0,.3);
 }
 
-@keyframes blink_button{
-    0% {
-      background: transparent;
-      color: #f4c242;
-    }
-    50% {
-      background: #f4c242;
-      color: white;
-    }
-    100% {
-      background: transparent;
-      color: #f4c242;
-    }
-  }
+button.closeButton {
+    position: absolute;
+    color: white;
+    font-size: 2em;
+    top: 5%;
+    right: 5%;
+    transition: .25s ease;
+    background: transparent;
+    border: none;
+}
+
+button.closeButton:focus{
+    transform: rotate(180deg)
+}
