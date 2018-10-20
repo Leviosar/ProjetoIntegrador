@@ -20,6 +20,10 @@ class Blackjack{
     attachEvents(){
         this.deckContainer.addEventListener('click', ()=>{
             if(this.pickRandomCard()){
+                this.deckContainer.classList.add('blink_button')
+                setTimeout(()=>{
+                    this.deckContainer.classList.remove('blink_button')
+                }, 300)
                 this.remaining.remove(this.used[this.used.length-1])
                 this.counting += this.deck[this.used[this.used.length-1]].value
                 this.totalContainer.innerText = 'Total: '+this.counting
@@ -29,6 +33,10 @@ class Blackjack{
         })
 
         this.resetContainer.addEventListener('click', ()=>{
+            this.resetContainer.classList.add('blink_button')
+            setTimeout(()=>{
+                this.resetContainer.classList.remove('blink_button')
+            }, 300)
             this.resetGame()
         })
     }
@@ -69,7 +77,7 @@ class Blackjack{
     }
 
     pickRandomCard(){
-        if (this.counting > 21) return false
+        if (this.counting >= 21) return false
         if (this.used.length == 52) return false
         
         let picked = Math.floor(Math.random() * ((this.deck.length - 1) - 0 + 1)) + 0

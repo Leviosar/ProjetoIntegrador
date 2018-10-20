@@ -1,0 +1,1 @@
+let x = new Blackjack(document.querySelector('#blackjack'))

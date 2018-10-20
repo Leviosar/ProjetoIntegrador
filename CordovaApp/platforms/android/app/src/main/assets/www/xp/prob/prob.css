@@ -195,8 +195,29 @@ div#first-img > div > div > div > img {
   height: auto;
 }
 
+.blink_button{
+  animation: blink_button .25s;
+}
+
 @keyframes blink{
   0% {background: transparent}
   50% {background: rgba(210, 228, 89, 0.5)}
   100% {background: transparent}
+}
+
+
+@keyframes blink_button{
+  0% {
+    background: transparent;
+    color: #f4c242;
+  }
+  50% {
+    background: #f4c242;
+    color: white;
+    border: 2px solid white;
+  }
+  100% {
+    background: transparent;
+    color: #f4c242;
+  }
 }
