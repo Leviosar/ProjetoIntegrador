@@ -14,12 +14,27 @@ async function generateUsers(){
 }
 
 function generateXp(){
-    let users = "INSERT INTO usuario_experiencia (idusuario, idexperiencia) VALUES "
-    for (let i = 0; i < 100000; i++) {
-        for (let j = 1; j < 7; j++) {
-            if (Math.ceil(Math.random() * 7) == 4) {
-                x = "("+i+","+j+"),"
-                console.log(x)
+    let users = "INSERT INTO rate (idusuario, idexperiencia, time, rate) VALUES "
+    for (let i = 40; i < 300000; i++) {
+        for (let j = 1; j <= 7; j++) {
+            let data = {
+                month: Math.ceil(Math.random() * 11),
+                day: Math.ceil(Math.random() * 28),
+                hour: Math.ceil(Math.random() * 23),
+                minute: Math.ceil(Math.random() * 59),
+                second: Math.ceil(Math.random() * 59),
+            }
+
+            if (data.month < 10) data.month = '0'+data.month
+            if (data.day < 10) data.day = '0'+data.day
+            if (data.hour < 10) data.hour = '0'+data.hour
+            if (data.minute < 10) data.minute = '0'+data.minute
+            if (data.second < 10) data.second = '0'+data.second
+
+            let timestamp = '2018-'+data.month+'-'+data.day+' '+data.hour+':'+data.minute+':'+data.second+''
+            let rate = Math.ceil(Math.random()*5)
+            if (Math.ceil(Math.random() * 10) >= 5) {
+                x = "("+i+","+j+", '"+timestamp+"',"+rate+"),"
                 users+=x            
             }
         }
