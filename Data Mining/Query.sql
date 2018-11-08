@@ -1,6 +1,6 @@
 -- Busca todas as experiências e a média de avaliação delas
 
-SELECT e.title, avg(r.rate) as media FROM rate AS r 
+EXPLAIN ANALYZE SELECT e.title, avg(r.rate) as media FROM rate AS r 
 INNER JOIN experiencia as e 
 ON e.idexperiencia = r.idexperiencia 
 GROUP BY (e.idexperiencia);
@@ -25,3 +25,11 @@ SELECT count(u.nome) AS total FROM usuario AS u
 LEFT JOIN usuario_experiencia AS ue
 ON u.idusuario = ue.idusuario
 WHERE ue.idusuario IS NULL;
+
+-- Todas as avaliações de uma determinada experiência e informações de seus usuários
+
+SELECT e.idexperiencia, e.title, u.nome, r.rate, r.time FROM rate AS r
+INNER JOIN usuario AS u
+ON r.idusuario = u.idusuario 
+INNER JOIN experiencia AS e
+ON e.idexperiencia = r.idexperiencia;

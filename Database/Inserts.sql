@@ -1,4 +1,8 @@
 INSERT INTO `Experiencias` (`Label`, `Title`, `Descricao`) VALUES ('#f4c242','As Aventuras de Pi','3,1415...? Acho que não é só isso');
+INSERT INTO `Experiencias` (`Label`, `Title`, `Descricao`) VALUES ('#f4c242','As Aventuras de Pi','3,1415...? Acho que não é só isso');
+INSERT INTO `Experiencias` (`Label`, `Title`, `Descricao`) VALUES ('#f4c242','As Aventuras de Pi','3,1415...? Acho que não é só isso');
+INSERT INTO `Experiencias` (`Label`, `Title`, `Descricao`) VALUES ('#f4c242','As Aventuras de Pi','3,1415...? Acho que não é só isso');
+INSERT INTO `Experiencias` (`Label`, `Title`, `Descricao`) VALUES ('#f4c242','As Aventuras de Pi','3,1415...? Acho que não é só isso');
 
 
 

@@ -114,3 +114,17 @@ CREATE TABLE IF NOT EXISTS `oob_bd`.`score` (
 )
 ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `permission` (
+    `idpermission` INT NOT NULL PRIMARY KEY,
+    `descricao` VARCHAR(255) NOT NULL
+)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `oob_bd`.`usuario_permission` (
+    `idpermission` INT NOT NULL,
+    `idusuario` INT NOT NULL,
+    `status` TINYINT(1) NOT NULL,
+    FOREIGN KEY (`idusuario`) REFERENCES `oob_bd`.`usuario` (`idusuario`), 
+    FOREIGN KEY (`idpermission`) REFERENCES `oob_bd`.`permission` (`idpermission`)
+)
+ENGINE = InnoDB;

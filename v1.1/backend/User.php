@@ -49,7 +49,7 @@ class User{
 			$auth->execute();
 			$response = $auth->fetch(PDO::FETCH_ASSOC);
 			if($auth->rowCount() > 0){
-				$query = $this->connection->prepare("SELECT idusuario, nome, email FROM usuario WHERE idusuario = ?");
+				$query = $this->connection->prepare("SELECT idusuario, nome, email, avatar FROM usuario WHERE idusuario = ?");
 				$query->bindParam(1, $response['idusuario'], PDO::PARAM_STR);
 				$query->execute();
 				$return = $query->fetch(PDO::FETCH_ASSOC);
@@ -377,6 +377,20 @@ class User{
             $query->bindParam(':email', $KEYS['email'], PDO::PARAM_STR);
             $query->bindParam(':senha', $hash, PDO::PARAM_STR);
 			$query->execute();
+
+			$idUsuario = $this->connection->lastInsertId();
+
+			$cu = 1;
+			$cuu = 2;
+
+			$query2 = $this->connection->prepare('INSERT INTO usuario_permission (idusuario, idpermission, status) VALUES (? , ?, ?), (?, ?, ?)');
+			$query2->bindParam(1, $idUsuario);
+            $query2->bindParam(2, $cu, PDO::PARAM_INT);
+            $query2->bindParam(3, $KEYS['question1']);
+            $query2->bindParam(4, $idUsuario);
+            $query2->bindParam(5, $cuu, PDO::PARAM_INT);
+            $query2->bindParam(6, $KEYS['question2']);
+			$query2->execute();
 			
 			if($query->rowCount() > 0){
 				$condition = true;

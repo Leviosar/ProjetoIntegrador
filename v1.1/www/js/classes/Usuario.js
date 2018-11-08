@@ -4,6 +4,7 @@ class Usuario{
         this.idUsuario;
         this.nomeUsuario;
         this.emailUsuario;    
+        this.avatar
     }
 
     async getInfo(callback = ()=>{}){
@@ -13,6 +14,8 @@ class Usuario{
             this.idUsuario = response.idusuario
             this.nomeUsuario = response.nome
             this.emailUsuario = response.email
+            this.avatar = response.avatar
+            this.setMenu(document.querySelector('div.menu-header'))
             callback()
         },
         async (errorCode)=>{
@@ -28,6 +31,13 @@ class Usuario{
                 }
             )
         })
+    }
+
+    setMenu(container) {
+        let fileName= location.href.split("/").slice(-1)
+        if (fileName == 'extras.html' || fileName == 'extras.html#') container.querySelector('img').src = '../img/avatars/'+this.avatar+'.png'
+        else container.querySelector('img').src = 'img/avatars/'+this.avatar+'.png'
+        container.querySelector('span').innerText = 'Olá '+ this.nomeUsuario
     }
 
     async addCoin(total, callback){
@@ -146,16 +156,19 @@ class Usuario{
         )
     }
 
-    async signUp(nome,email,senha){
+    async signUp(inputs){
         
         let keys = {
-            nome: nome,
-            email: email,
-            senha: senha,
+            nome: inputs.nome,
+            email: inputs.email,
+            senha: inputs.senha,
+            question1: inputs.question1,
+            question2: inputs.question2
         }
 
         let loading = document.createElement('img')
         loading.src = 'img/loading5.gif'
+
         swal({
             title: 'Fazendo requisições super pesadas',
             content: loading
@@ -188,10 +201,19 @@ class Usuario{
             senha : senha
         }
 
-        let loading = document.createElement('img')
-        loading.src = 'img/loading3.gif'
+        let container = document.createElement('div')
+        container.classList.add('sk-wave')
+
+        for (let i = 0; i < 5; i++) {
+            let divi = document.createElement('div')
+            divi.classList.add('sk-rect')
+            divi.classList.add('sk-rect'+(i+1))
+            container.appendChild(divi)
+        }
+
         swal({
-            content: loading
+            content: container,
+            button: "Carregando!"
         })
 
         this.request('loginUser', keys, 
@@ -201,9 +223,10 @@ class Usuario{
                 swal({
                     title: "Sucesso",
                     text: "Login realizado, redirecionando",
-                    icon: "success"
+                    icon: "success",
+                    button: false
                 })
-                setTimeout(()=>location.href = "xplist.html",1500);
+                setTimeout(()=>location.href = "xplist.html",1000);
             },
             (errorCode)=>{
                 let data = JSON.parse(errorCode)

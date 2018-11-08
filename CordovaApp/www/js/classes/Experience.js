@@ -10,6 +10,7 @@ class Experience{
         this.currentText = 0
         this.endButton = document.querySelector("button.button")
         this.scrollX
+        this.canvasTouch = false
         this.setup()
     }
 
@@ -141,15 +142,26 @@ class Experience{
 }
 
 window.addEventListener("touchstart", ev=>{
+
+    if (ev.target.toString().includes('Canvas')) xp.canvasTouch = true
+    else xp.canvasTouch = false
+
     touchStart = [ev.touches[0].screenX, ev.touches[0].screenY]
+
 })
 
 window.addEventListener("touchend", ev=>{
     touchEnd = [ev.changedTouches[0].screenX, ev.changedTouches[0].screenY]
-    
-    if (Math.abs(touchStart[0] - touchEnd[0]) > 120) {
-        xp.swipeContent(-(touchStart[0] - touchEnd[0]))   
-    } 
+
+    if (xp.canvasTouch) {
+        if (Math.abs(touchStart[0] - touchEnd[0]) > innerWidth * 0.6) {
+            xp.swipeContent(-(touchStart[0] - touchEnd[0]))   
+        }
+    }else{
+        if (Math.abs(touchStart[0] - touchEnd[0]) > innerWidth * 0.2) {
+            xp.swipeContent(-(touchStart[0] - touchEnd[0]))   
+        } 
+    }
 })
 
 function clearAll(array){

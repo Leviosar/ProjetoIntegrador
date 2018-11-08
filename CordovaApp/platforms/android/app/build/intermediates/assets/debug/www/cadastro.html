@@ -10,27 +10,94 @@
 	<link rel="stylesheet" type="text/css" href="css/img.css">
 	<link rel="stylesheet" type="text/css" href="css/input.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/cadastro.css">
 
 </head>
 <body>
-	<div class="container columns align-center max-height-100">
+	<main>
+		<section class="window">
+			<div class="flex align-center height-20">
+				<h1>Quem é você?</h1>
+				<div>
+					<hr>
+				</div>
+			</div>
+	
+			<div>
+				<form class="flex columns flex-end formu">
+					<input data-info="nome" class="text check mb-4" type="text" name="Nome" maxlength="150" placeholder="Nome">
+					<input data-info="email" class="text check equal mb-4" type="email" name="Email" maxlength="150" placeholder="E-mail">
+					<input data-info="email" class="text check equal mb-4" type="email" maxlength="150" placeholder="Confirmação de e-mail">
+				</form>
+			</div>
+			
+			<div>
+				<button> <i class="fas fa-chevron-left"></i> </button>
+				<button data-check="true"> <i class="fas fa-chevron-right"></i>  </button>
+			</div>
+		</section>
 
-		<div class="row-sm flex align-center height-20 mb-13">
-			<h1>Quase lá...</h1>
-		</div>
+		<section class="window">
+			<div class="flex align-center height-20">
+				<h1>Não estamos te vigiando...</h1>
+				<div>
+					<hr>
+					<hr>
+				</div>
+			</div>
+	
+			<div>
+				<form class="flex columns flex-end formu">
+					<input data-info="senha" class="text check equal mb-4" type="password" name="s" maxlength="60" placeholder="Senha">
+					<input data-info="senha" class="text check equal mb-4" type="password" name="cs" maxlength="60" placeholder="Confirmar senha">
+				</form>
+			</div>
+			
+			<div>
+				<button> <i class="fas fa-chevron-left"></i> </button>
+				<button data-check="true"> <i class="fas fa-chevron-right"></i>  </button>
+			</div>
+		</section>
 
-		<div class="row-lg height-40">
-			<form class="flex columns flex-end formu">
-				<input class="text mb-4" type="text" name="Nome" maxlength="150" placeholder="Nome">
-				<input class="text mb-4" type="email" name="Email" maxlength="150" placeholder="Email">
-				<input class="text mb-4" type="password" maxLenght="16" name="senha" placeholder="Senha">
-				<button type='button' class="button">Oob!</button>
-			</form>
-		</div>
-	</div>
+		<section class="window">
+			<div class="flex align-center height-20">
+				<h1>Quase lá...</h1>
+				<div>
+					<hr>
+					<hr>
+					<hr>
+				</div>
+			</div>
+			
+			<div>
+				<form class="flex columns flex-end formu">
+
+					<div class="check-group">
+						<span>Você gostaria de receber novidades sobre as futuras atualizações do app no email?</span>
+						<input type="checkbox" id="q1" value="Sim">
+						<label for="q1"> <i class="fas fa-check"></i> </label>
+					</div>
+
+					<div class="check-group">
+						<span>Você gostaria de disponibilizar seus dados de uso do app para ajudar em pesquisas científicas?</span>
+						<input type="checkbox" id="q2" value="Sim">
+						<label for="q2"> <i class="fas fa-check"></i> </label>
+					</div>
+
+				</form>
+			</div>
+			
+			<div>
+				<button> <i class="fas fa-chevron-left"></i> </button>
+				<button> <i class="fas fa-chevron-up"></i>  </button>
+			</div>
+		</section>
+
+	</main>
 
 	<!-- Scripts próprios -->
 	<script type="text/javascript" src="js/classes/Usuario.js"></script>
+	<script type="text/javascript" src="js/classes/Scroller.js"></script>
 	<script type="text/javascript" src="js/cadastro.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="cordova.js"></script>

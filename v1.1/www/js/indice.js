@@ -32,11 +32,11 @@ function menuCheck() {
         side.classList += ' side-menu-open'
         side.style.transform = 'translateX(0%)'
         shadowMenu.style.opacity = '1'
-        shadowMenu.style.zIndex = '1'
+        shadowMenu.style.transform = 'translateX(0%)'
     }else {
         side.style.transform = 'translateX(-101%)'
         shadowMenu.style.opacity = '0'
-        shadowMenu.style.zIndex = '-1'
+        shadowMenu.style.transform = 'translateX(-101%)'
         side.className = 'side-menu'
     }
     menuStatus = !menuStatus

@@ -20,6 +20,9 @@ class Scroller {
     }
 
     slide(step) {
+        if (step < 0) {
+            return
+        }
         // this.steps.forEach(element => {
 
         //     if (element.dataset.pos == step || step == this.max + 2 && element.dataset.pos == 1)

@@ -14,6 +14,7 @@ class Blackjack{
         this.cvContainer = container.querySelector('div:first-child > div:first-child > span:last-child')
         this.handContainer = container.querySelector('.hand')
         this.counting = 0
+        console.log(this)
         this.attachEvents()
     }
 

@@ -7,7 +7,7 @@ c_user = new Usuario()
 let fileName= location.href.split("/").slice(-1)
 switch(fileName[0]){
     case "login.html":
-
+        
     break;
     
     case "cadastro.html":
@@ -23,6 +23,13 @@ switch(fileName[0]){
     break;
 }
 
+let auto = document.querySelector('a.self')
+if (auto != undefined) {
+    auto.addEventListener('click', (ev)=>{
+        ev.preventDefault()
+        menuCheck()
+    })    
+}
 /* Start of CRUD requests */
 
 function getUserData(){
