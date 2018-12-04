@@ -597,10 +597,6 @@ div.height-30 > h1 {
 		margin-top: 5vh;
 	}
 
-	div.formu input.button, div.formu button.button, form input.button, form button.button{
-		height: 8vw;
-	}
-
 	header{
 		height: 10vw;
 	}

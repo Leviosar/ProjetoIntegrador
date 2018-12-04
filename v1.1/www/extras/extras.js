@@ -19,6 +19,7 @@ window.addEventListener('load', ()=>{
 let joguinhos = []
 
 function buildExtra(result){    
+    document.querySelector('section').innerHTML = ''
     let swalInfos = []
     
     swalInfos[0] = ()=>{

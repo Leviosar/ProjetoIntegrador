@@ -36,8 +36,14 @@ class Usuario{
     setMenu(container) {
         let fileName= location.href.split("/").slice(-1)
         if (fileName == 'extras.html' || fileName == 'extras.html#') container.querySelector('img').src = '../img/avatars/'+this.avatar+'.png'
-        else container.querySelector('img').src = 'img/avatars/'+this.avatar+'.png'
-        container.querySelector('span').innerText = 'Olá '+ this.nomeUsuario
+        else{
+            try{
+                container.querySelector('img').src = 'img/avatars/'+this.avatar+'.png'
+                container.querySelector('span').innerText = 'Olá '+ this.nomeUsuario
+            }catch(E){
+                console.log(E)
+            }
+        } 
     }
 
     async addCoin(total, callback){
